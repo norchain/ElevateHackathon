@@ -1,0 +1,1 @@
+![Asymmentropy](pic/Asymmentropy.jpg)
