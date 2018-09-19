@@ -77,8 +77,8 @@ We already have two ideas on Blockchain.
    1. Blockchain privatenet buildup. 
    2. Smart Contract done. 
    3. RPC test done.
-   4. Allow mobile app connection.
-3. iOS app:
+   4. Allow frontend app connection.
+3. iOS/frontend app:
    1. Basic layout and PoC done
    2. Connection with RPC to blockchain node done.
    3. Interface to invoke fake accounts.
