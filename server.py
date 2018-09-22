@@ -30,9 +30,7 @@ def restaurants():
     try:
         total = []
         for one in mongo.db.restaurants.find({}, {"_id": False}):
-            print(one)
             total.append(one)
-        print(json.dumps(total))
         return json.dumps(total), 200
     except Exception as error:
         print(error)
