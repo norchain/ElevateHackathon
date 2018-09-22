@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 
 enum AccountType: String {
-    case visa
-    case master
+    case VISA
+    case MASTER
 }
 
 class MaskedRelatedCreditCardAccount: Mappable {

@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class MaskedRelatedBankAccount: Mappable {
-    var branchNumber: Int?
+    var branchNumber: String?
     var maskedAccountNumber: String?
     var accountId: String?
     

@@ -13,7 +13,7 @@ class Address: Mappable {
     var streetName: String?
     var province: String?
     var streetNumber: String?
-    var addressType: String?
+    var addressType: Int?
     var postalCode: String?
     var latitude: Double?
     var municipality: String?

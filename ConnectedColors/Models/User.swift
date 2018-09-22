@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 
 enum Gender: String {
-    case male
-    case female
+    case Male
+    case Female
     
 }
 
@@ -26,8 +26,9 @@ enum WorkType: String {
 
 enum Marriage: String {
     case Single
+    case Widowed
     case Married
-    case Separate
+    case Separated
     case Divorced
 }
 
@@ -39,14 +40,14 @@ class User: Mappable {
     var maidenName: String?
     var age: Int?
     var gender: Gender?
-    var birthDate: Date?
+    var birthDate: String?
     var workActivity: WorkType?
     var occupationIndustry: String?
     var totalIncome: Double?
     var relationshipStatus: Marriage?
-    var address: [String: Address]?
-    var maskedRelatedBankAccounts: [MaskedRelatedBankAccount]?
-    var maskedRelatedCreditCardAccounts: [MaskedRelatedCreditCardAccount]?
+    var addresses: [String: Address]?
+    var maskedRelatedBankAccounts: [String: [MaskedRelatedBankAccount]]?
+    var maskedRelatedCreditCardAccounts: [String: [MaskedRelatedCreditCardAccount]]?
     
     
     required init?(map: Map) {
@@ -56,7 +57,7 @@ class User: Mappable {
     func mapping(map: Map) {
         id              <- map["id"]
         type            <- map["type"]
-        giveName        <- map["giveName"]
+        giveName        <- map["givenName"]
         maidenName      <- map["maidenName"]
         age             <- map["age"]
         gender          <- map["gender"]
@@ -65,8 +66,9 @@ class User: Mappable {
         occupationIndustry  <- map["occupationIndustry"]
         totalIncome     <- map["totalIncome"]
         relationshipStatus  <- map["relationshipStatus"]
-        address         <- map["address"]
+        addresses         <- map["addresses"]
         maskedRelatedBankAccounts   <- map["maskedRelatedBankAccounts"]
         maskedRelatedCreditCardAccounts <- map["maskedRelatedCreditCardAccounts"]
+        id              <- map["id"]
     }
 }

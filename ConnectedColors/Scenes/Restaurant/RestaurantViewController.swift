@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantViewController: UIViewController {
+class RestaurantViewController: UITableViewController {
     
     var worker: RestaurantWorker = RestaurantWorker(http: HTTPService())
     

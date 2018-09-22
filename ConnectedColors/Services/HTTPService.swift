@@ -40,10 +40,12 @@ class HTTPService: HTTPServiceProtocol {
         }
         let headers: HTTPHeaders = [
         "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDQlAiLCJ0ZWFtX2lkIjoiNzdhMzQ0OTUtYTYwNS0zNjVhLWE3YmYtZTk2NDU1YWY5ZDY0IiwiZXhwIjo5MjIzMzcyMDM2ODU0Nzc1LCJhcHBfaWQiOiI4NjUzYjAyOC04MzY1LTQzNmMtOTM4Zi04NWM5OWZmMzFlNmUifQ.fZInef0tn0CmrO7uXNDilLuqotzgJm20-Kdn7kesTWI",
-        "Accept": "application/json"
+        "Content-Type": "application/json"
         ]
         
-        Alamofire.request(url, method: .post, parameters: ["continuationToken":""], encoding: URLEncoding.default, headers: headers)
+        let parameters: Parameters = ["continuationToken":""]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .validate()
             .responseJSON { (response) in
                 guard response.result.isSuccess else {
@@ -52,13 +54,15 @@ class HTTPService: HTTPServiceProtocol {
                     return
                 }
                 
-                guard let value = response.result.value as? [String: Any],
-                let usersJson = value["result"] as? [[String: Any]] else {
-                        complete(.Failure(error: HTTPError.fetchUser))
-                        return
+                guard let data = response.data,
+                    let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                    let dic = json?["result"] as? [String: Any],
+                    let customers = dic["customers"] as? [[String: Any]] else {
+                    complete(.Failure(error: HTTPError.fetchUser))
+                    return
                 }
                 
-                let users: [User] = usersJson.compactMap { json in
+                let users: [User] = customers.compactMap { json in
                     return User(JSON: json)
                 }
                 
