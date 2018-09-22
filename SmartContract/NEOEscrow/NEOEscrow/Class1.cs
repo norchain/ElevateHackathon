@@ -92,6 +92,11 @@ namespace Escrow
             return NuIO.GetStorageWithKey(Global.keyNumProducts).AsBigInteger();
         }
 
+
+
+        public static bool Deploy(){
+            return true;
+        }
         //Create account information
         public static bool PostAccount(byte[] addr,string name, BigInteger balance){
             BigInteger nowNum = NuIO.GetStorageWithKey(Global.keyNumAccounts).AsBigInteger() + 1;
@@ -186,6 +191,10 @@ namespace Escrow
             }
         }
 
+
+        /**
+            Comfirmation for the completion of the purchase
+        */
         public static BigInteger PostPurchaseDone(BigInteger buyerID,BigInteger purchaseId, BigInteger stars, String comment){
             byte[] purData = NuIO.GetStorageWithKeyPath(Global.keyPurchase, purchaseId.AsByteArray().AsString());
             byte[] buyerData = NuIO.GetStorageWithKeyPath(Global.keyAcc, buyerID.AsByteArray().AsString());
@@ -201,169 +210,29 @@ namespace Escrow
                 }
                 else{
                     User escrow = GetEscrow();
-                    escrow.balance -= purchase.amount;
+                    User seller = GetUserById(purchase.sellerId);
 
-
-
-                    User seller = 
                         
+                    escrow.balance -= purchase.amount;
+                    seller.balance += purchase.amount;
+
+                   
+                    purchase.comment = comment;
+                    purchase.stars = stars;
                     purchase.finished = true;
-                    
+
+
+
                     NuIO.SetStorageWithKeyPath(escrow.Serialize(), Global.keyAcc, "0");
+                    NuIO.SetStorageWithKeyPath(seller.Serialize(), Global.keyAcc, purchase.sellerId.AsByteArray().AsString());
+                    NuIO.SetStorageWithKeyPath(purchase.Serialize(), Global.keyPurchase, purchaseId.AsByteArray().AsString());
+                    return purchaseId;
                 }
             }
         }
 
-        /**
-            Start a new game. Only the owner account can do it. 
-        */
-        private static bool StartGame(){
-            BigInteger num = Op.Bytes2BigInt(NuIO.GetStorageWithKey(Global.keyNumGames));
-
-            Game game = new Game();
-            BigInteger currentHeight = Blockchain.GetHeight();
-            game.heightStage1 = currentHeight + Global.Stage1Height;
-            game.heightStage2 = currentHeight + Global.Stage2Height;
-            game.numEntries = 0;
-            game.isFinalized = false;
-            byte[] data = game.Serialize();
-            BigInteger gameid = NumGames();
-            NuIO.SetStorageWithKeyPath(data, Global.keyGame, Op.BigInt2String(gameid));
-            NuIO.SetStorageWithKey(Global.keyNumGames, Op.BigInt2Bytes(gameid + 1));
-            string a = data.AsString();
-            return true;
-
-        }
 
 
-        /**
-            In the 1st stage of each game, players are only allowed to submit the 
-            hidden number's hash, rather than it hidden value itself.
-        */
-        public static byte[] PutEntry(BigInteger gameId, byte[] address, byte[] pick, byte[] hiddenHash)
-        {
-
-            Game game = GetGame(gameId);
-            if(game == null){
-                return NuTP.RespDataWithCode(NuTP.SysDom, NuTP.Code.BadRequest);
-            }
-            else
-            {
-                
-                if (Blockchain.GetHeight() >= game.heightStage1)
-                {
-                    return NuTP.RespDataWithCode(NuTP.SysDom, NuTP.Code.Forbidden);;
-                }
-                else
-                {
-                    Entry entry = new Entry();
-                    entry.gameId = gameId;
-                    entry.address = address;
-                    entry.pick = pick;
-                    entry.hiddenHash = hiddenHash;
-                    byte[] data = entry.Serialize();
-                    BigInteger id = NumEntries(gameId);
-                    NuIO.SetStorageWithKeyPath(data, Global.keyGame, Op.BigInt2String(gameId),Global.keyEntry, Op.BigInt2String(id));
-
-                    game.numEntries += 1;
-                    NuIO.SetStorageWithKeyPath(game.Serialize(), Global.keyGame, Op.BigInt2String(gameId));
-
-                    return NuTP.RespDataSucWithBody(data);
-                }
-
-            }
-
-        }
-
-
-        /**
-            In the 2nd stage of each game, players submit the hidden number(prove), nobody can fake it 
-            since it must match the hash every player submitted in during first round.
-            If a user failed to submit the prove, s/he will be elimiated from this game.
-        */
-        public static byte[] PutProve(BigInteger gameId ,BigInteger entryId, byte[] hidden)
-        {
-            Entry entry = GetEntry(gameId,entryId);
-
-            Game game = GetGame(gameId);
-            BigInteger height = Blockchain.GetHeight();
-            if (height < game.heightStage1 || height > game.heightStage2)
-            {
-                return NuTP.RespDataWithCode(NuTP.SysDom,NuTP.Code.Forbidden);
-            }
-            else
-            {   
-                if (Hash256(hidden) == entry.hiddenHash)
-                {
-                    entry.hidden = hidden;
-                    return NuTP.RespDataSuccess();
-                }
-                else
-                {
-                    return NuTP.RespDataWithCode(NuTP.SysDom, NuTP.Code.BadRequest);
-                }
-            }
-
-        }
-
-        /**
-            After 2nd stage finished, anybody can query the winnerPick.
-        */
-        public static byte[] CalcResult(BigInteger gameId){
-            Game game = GetGame(gameId);
-            if(game == null){
-                return NuTP.RespDataWithCode(NuTP.SysDom, NuTP.Code.BadRequest);
-            }
-            else{
-                if (game.winnerPick[0]==1)
-                {
-                    return NuTP.RespDataSucWithBody(game.winnerPick);
-                }
-                else
-                {
-                    BigInteger height = Blockchain.GetHeight();
-                    if (height < game.heightStage2)
-                    {
-                        return NuTP.RespDataWithCode(NuTP.SysDom, NuTP.Code.Forbidden);
-                    }
-                    else
-                    {
-                        BigInteger salt = 0;
-                        for (int i = 0; i < game.numEntries; i++)
-                        {
-                            Entry entry = GetEntry(gameId, i);
-                            if (entry.hidden.Length != 0)
-                            {
-                                salt += Op.Bytes2BigInt(entry.hidden);
-                            }
-                        }
-                        byte[] winnerPick = Op.SubBytes(Hash256(salt.ToByteArray()), 0, 1);
-                        game.winnerPick = winnerPick;
-                        return NuTP.RespDataSucWithBody(winnerPick);
-                    }
-                }
-            }
-        }
-
-        public static byte[] IsWinner(BigInteger gameId, BigInteger entryId){
-            Game game = GetGame(gameId);
-            if (game == null){
-                return NuTP.RespDataWithCode(NuTP.SysDom, NuTP.Code.BadRequest);
-            }
-            else{
-                BigInteger height = Blockchain.GetHeight();
-                if (height < game.heightStage2){
-                    return NuTP.RespDataWithCode(NuTP.SysDom, NuTP.Code.Forbidden); 
-                }
-                else{
-                    
-                    Entry entry = GetEntry(gameId, entryId);
-                    bool ret = entry.pick == game.winnerPick;
-                    return NuTP.RespDataSucWithBody(Op.Bool2Bytes(ret));
-                }
-
-            }
-        }
 
         public static object Main(string op, params object[] args)
         {
@@ -374,68 +243,58 @@ namespace Escrow
 
             if (op == "deploy")
             {
-                if (Runtime.CheckWitness(Owner))
+                if (Runtime.CheckWitness(escrowAddr))
                 {
                     return Deploy();
                 }
-
-            }
-
-            if(op == "startGame")
-            {
-                if (Runtime.CheckWitness(Owner))
-                {
-                    return StartGame();
+                else{
+                    return false;
                 }
             }
 
-            if(op == "putEntry")
+
+            if(op == "postAccount")
             {
-                BigInteger gameID = ((byte[])args[0]).AsBigInteger();
-                byte[] address = (byte[])args[1];
-                byte[] pick = (byte[])args[2];
-                byte[] hiddenHash = (byte[])args[3];
-                return PutEntry(gameID, address, pick, hiddenHash);
+                byte[] address = (byte[])args[0];
+                string name = (string)args[1];
+                BigInteger balance = (BigInteger)args[2];
+
+                return PostAccount(address, name, balance);
             }
 
-            if(op == "putProve")
+            if(op == "postProduct")
             {
-                BigInteger gameId = (BigInteger)args[0];
-                BigInteger entryId = (BigInteger)args[1];
-                byte[] hidden = (byte[])args[2];
-                return PutProve(gameId, entryId, hidden);
+                BigInteger prodId = (BigInteger)args[0];
+                string desc = (string)args[1];
+                BigInteger price = (BigInteger)args[2];
+                BigInteger sellerId = (BigInteger)args[3];
+                return PostProduct(prodId, desc, price,sellerId);
             }
 
 
-            if (op == "checkResult")
+            if (op == "postPurchase")
             {
-                BigInteger gameId = ((byte[])args[0]).AsBigInteger();
-                return CalcResult(gameId);
+                BigInteger buyerId = (BigInteger)args[0];
+                BigInteger sellerId = (BigInteger)args[1];
+                BigInteger prodID = (BigInteger)args[2];
+                BigInteger num = (BigInteger)args[3];
+                return PostPurchase(buyerId, sellerId, prodID, num);
+
             }
+
+            if (op == "postPurchaseDone")
+            {
+                BigInteger buyerId = (BigInteger)args[0];
+                BigInteger purchaseID = (BigInteger)args[1];
+                BigInteger stars = (BigInteger)args[2];
+                string comment = (string)args[3];
+                return PostPurchaseDone(buyerId, purchaseID, stars, comment);
+
+            }
+
+
             else return false;
         }
     
-        public static BigInteger NumGames()
-        {
-            return Op.Bytes2BigInt(NuIO.GetStorageWithKey(Global.keyNumGames));
-        }
-
-        public static Game GetGame(BigInteger gameId)
-        {
-            return (Game)NuIO.GetStorageWithKeyPath(Global.keyGame, Op.BigInt2String(gameId)).Deserialize();
-        }
-
-        public static BigInteger NumEntries(BigInteger gameId)
-        {
-            Game game = GetGame(gameId);
-            return game.numEntries;
-
-        }
-
-        public static Entry GetEntry(BigInteger gameId, BigInteger entryId)
-        {
-
-            return (Entry)NuIO.GetStorageWithKeyPath(Global.keyGame, Op.BigInt2String(gameId), Global.keyEntry, Op.BigInt2String(entryId)).Deserialize();
-        }
     }
 }
