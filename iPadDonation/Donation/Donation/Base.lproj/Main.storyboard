@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,11 +31,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxl-RL-N5O">
+                                <rect key="frame" x="354.5" y="140" width="59.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fxj-yq-LK0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1gg-Sj-wAY"/>
+                            <constraint firstItem="Uxl-RL-N5O" firstAttribute="top" secondItem="uMQ-1C-N7Q" secondAttribute="bottom" constant="10" id="Zyz-Fx-aQm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fxj-yq-LK0" secondAttribute="bottom" constant="20" id="bHO-IP-vbc"/>
+                            <constraint firstItem="Uxl-RL-N5O" firstAttribute="centerX" secondItem="uMQ-1C-N7Q" secondAttribute="centerX" id="g7u-M9-z3S"/>
                             <constraint firstItem="uMQ-1C-N7Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="kGW-hX-JK3"/>
                             <constraint firstItem="uMQ-1C-N7Q" firstAttribute="centerX" secondItem="fxj-yq-LK0" secondAttribute="centerX" id="oKF-hv-5mV"/>
                         </constraints>
@@ -42,6 +51,7 @@
                     </view>
                     <connections>
                         <outlet property="imgHat" destination="fxj-yq-LK0" id="woy-uH-65Q"/>
+                        <outlet property="lbConnect" destination="Uxl-RL-N5O" id="abK-Kx-NiL"/>
                         <outlet property="lbEarn" destination="uMQ-1C-N7Q" id="wYD-aQ-640"/>
                     </connections>
                 </viewController>
