@@ -45,9 +45,10 @@ class HTTPService: HTTPServiceProtocol {
         
         let parameters: Parameters = ["continuationToken":""]
         
+        let utilityQueue = DispatchQueue.global(qos: .utility)
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .validate()
-            .responseJSON { (response) in
+            .responseJSON(queue: utilityQueue) { (response) in
                 guard response.result.isSuccess else {
                     print("Error fetching users")
                         complete(.Failure(error: HTTPError.fetchUser))
@@ -66,7 +67,9 @@ class HTTPService: HTTPServiceProtocol {
                     return User(JSON: json)
                 }
                 
-                complete(.Success(result: users))
+                DispatchQueue.main.async {
+                    complete(.Success(result: users))
+                }
         }
     }
 }

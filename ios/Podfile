@@ -10,4 +10,5 @@ target 'ConnectedColors' do
   pod 'ObjectMapper', '~> 3.3'
   pod 'ILLoginKit'
   pod 'JGProgressHUD'
+  pod 'ViewAnimator'
 end

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import JGProgressHUD
+import ViewAnimator
 
 class UsersViewController: UITableViewController {
     
@@ -26,8 +28,15 @@ class UsersViewController: UITableViewController {
         super.viewDidLoad()
         
         registerCellTypes([UserTableViewCell.self])
+        let cells = tableView.visibleCells(in: 0)
+        let zoom = AnimationType.zoom(scale: 0.5)
+        let top = AnimationType.from(direction: .top, offset: 30.0)
+        UIView.animate(views: cells, animations: [zoom, top])
         
-
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
         worker.getUsers { [weak self] (result) in
             switch result {
             case .Success(let users):
@@ -35,7 +44,10 @@ class UsersViewController: UITableViewController {
                 self?.filterUsers = users
             case .Failure(let error):
                 self?.error = error.localizedDescription
+                
             }
+            
+            hud.dismiss(animated: true)
         }
     }
     
