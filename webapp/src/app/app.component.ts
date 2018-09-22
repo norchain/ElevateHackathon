@@ -24,5 +24,4 @@ export class AppComponent implements OnInit {
       ]
     };
   }
-  title = 'Norchain WebApp';
 }
