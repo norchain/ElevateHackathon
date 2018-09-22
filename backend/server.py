@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_pymongo import PyMongo
 import json
 
@@ -13,8 +13,11 @@ def review():
     try:
         if request.method == 'POST':
             data = request.get_json()
-            mongo.db.review.insert({"client_id": data['client_id'], "td_account": data['td_account'], "stars": data['start'], "comment": data['comment']})
-            return {}, 200
+            print(data)
+            one = {"client_id": data['client_id'], "td_account": data['td_account'], "stars": str(data['stars']), "comment": data['comment']}
+            print(one)
+            print(mongo.db.review.insert(one))
+            return "success", 200
         if request.method == 'GET':
             total = []
             for one in mongo.db.review.find({}, {"_id": False}):
@@ -23,7 +26,7 @@ def review():
             return json.dumps(total), 200
     except Exception as error:
         print(error)
-        return {}, 400
+        return "error", 400
 
 @app.route("/restaurants", methods=['GET'])
 def restaurants():
@@ -34,4 +37,4 @@ def restaurants():
         return json.dumps(total), 200
     except Exception as error:
         print(error)
-        return {}, 400
+        return "error", 400
