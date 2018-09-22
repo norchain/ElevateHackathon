@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Restaurant: Mappable {
+class Restaurant: Codable, Mappable {
     var _id: String?
     var name: String?
     var description: String?

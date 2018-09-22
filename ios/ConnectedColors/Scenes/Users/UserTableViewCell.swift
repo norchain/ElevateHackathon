@@ -34,4 +34,9 @@ class UserTableViewCell: BaseTableViewCell {
         genderLabel.text = user.gender?.rawValue
     }
     
+    func configure(with restaurant: Restaurant) {
+        nameLabel.text = restaurant.name
+        messageLabel.text = restaurant.price
+        genderLabel.text = restaurant.description
+    }
 }
