@@ -35,4 +35,24 @@ class Address: Mappable {
         longitude       <- map["longitude"]
         
     }
+    
+    var desciption: String {
+        return streetT + streetNT + proviceT + postcode
+    }
+    
+    var streetT: String {
+        return streetName ?? ""
+    }
+    
+    var streetNT: String {
+        return streetName ?? ""
+    }
+    
+    var proviceT: String {
+        return province ?? ""
+    }
+    
+    var postcode: String {
+        return postalCode ?? ""
+    }
 }
