@@ -29,6 +29,7 @@ struct Authentication {
         let loginUser = Credential(username: username, password: password, id: "")
         for user in Authentication.allUsers {
             if loginUser == user {
+                UserDefaults.standard.set(user.id, forKey: "UserID")
                 return true
             }
         }

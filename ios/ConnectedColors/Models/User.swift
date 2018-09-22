@@ -36,6 +36,7 @@ class User: Mappable {
     var id: String?
     var type: String?
     var giveName: String?
+    var surname: String?
     var otherName: String?
     var maidenName: String?
     var age: Int?
@@ -58,6 +59,7 @@ class User: Mappable {
         id              <- map["id"]
         type            <- map["type"]
         giveName        <- map["givenName"]
+        surname         <- map["surname"]
         maidenName      <- map["maidenName"]
         age             <- map["age"]
         gender          <- map["gender"]

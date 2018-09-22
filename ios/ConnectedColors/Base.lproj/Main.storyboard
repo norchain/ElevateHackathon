@@ -67,7 +67,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="137.18140929535232"/>
         </scene>
-        <!--Item 2-->
+        <!--Profile-->
         <scene sceneID="F0W-m9-v3Y">
             <objects>
                 <viewController id="g8N-gR-3jA" sceneMemberID="viewController">
@@ -80,13 +80,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="n7R-j4-KQA"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="n7R-j4-KQA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd4-pg-R0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-317" y="424"/>
         </scene>
-        <!--Item 1-->
+        <!--History-->
         <scene sceneID="iIb-RT-bIE">
             <objects>
                 <viewController id="W2h-RI-R4H" sceneMemberID="viewController">
@@ -99,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="4r8-iQ-7bR"/>
+                    <tabBarItem key="tabBarItem" title="History" id="4r8-iQ-7bR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JO-9P-ppU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="-2204" y="224"/>
         </scene>
-        <!--Item-->
+        <!--Users-->
         <scene sceneID="BKg-I5-8TZ">
             <objects>
-                <tableViewController id="DGi-9G-dYy" customClass="RestaurantViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Users" id="DGi-9G-dYy" customClass="UsersViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ltS-Jw-zkC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +165,7 @@
                             <outlet property="delegate" destination="DGi-9G-dYy" id="p8c-Aw-u5C"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="lDh-29-Uro"/>
+                    <tabBarItem key="tabBarItem" title="Users" id="lDh-29-Uro"/>
                     <navigationItem key="navigationItem" id="dJd-f1-YN4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tj9-by-ryq" userLabel="First Responder" sceneMemberID="firstResponder"/>

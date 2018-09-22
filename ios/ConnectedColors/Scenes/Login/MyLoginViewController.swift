@@ -22,6 +22,12 @@ class MyLoginViewController: LoginViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
     func configureAppearance() {
         configuration = DefaultConfiguration(backgroundImage: UIImage(named: "background")!,
                                              backgroundImageGradient: false,
