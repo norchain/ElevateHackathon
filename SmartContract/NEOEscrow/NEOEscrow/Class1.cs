@@ -70,18 +70,12 @@ namespace Escrow
             public BigInteger sellerId;
             public BigInteger prodId;
             public BigInteger number;
+            public BigInteger amount;
             public bool finished;
+            public BigInteger stars;
+            public string comment;
         }
 
-
-        [Serializable]
-        public class Game{
-            public BigInteger heightStage1;
-            public BigInteger heightStage2;
-            public BigInteger numEntries;
-            public bool isFinalized;
-            public byte[] winnerPick;
-        }
 
 
 
@@ -135,9 +129,13 @@ namespace Escrow
         }
 
         private static User GetEscrow(){
-            byte[] userData = NuIO.GetStorageWithKeyPath(Global.keyAcc, "0");
-            User escrow = (User)userData.Deserialize();
-            return escrow;
+            return GetUserById(0);
+        }
+
+        private static User GetUserById(BigInteger id){
+            byte[] userData = NuIO.GetStorageWithKeyPath(Global.keyAcc, id.AsByteArray().AsString());
+            User user = (User)userData.Deserialize();
+            return user;
         }
 
         //
@@ -172,11 +170,15 @@ namespace Escrow
                         sellerId = sellerId,
                         prodId = prodID,
                         number = num,
-                        finished = false
+                        finished = false,
+                        amount = cost
                     };
                     byte[] purData = purchase.Serialize();
 
-                    NuIO.SetStorageWithKeyPath(purData.Serialize(), Global.keyAcc, NumProducts().AsByteArray().AsString());
+                    NuIO.SetStorageWithKeyPath(purData.Serialize(), Global.keyAcc, NumPurchase().AsByteArray().AsString());
+
+                    NuIO.SetStorageWithKeyPath(escrow.Serialize(), Global.keyAcc, "0");
+
                     NuIO.SetStorageWithKey(Global.keyNumPurchases, nowNum.AsByteArray());
 
                     return nowNum; 
@@ -184,7 +186,33 @@ namespace Escrow
             }
         }
 
+        public static BigInteger PostPurchaseDone(BigInteger buyerID,BigInteger purchaseId, BigInteger stars, String comment){
+            byte[] purData = NuIO.GetStorageWithKeyPath(Global.keyPurchase, purchaseId.AsByteArray().AsString());
+            byte[] buyerData = NuIO.GetStorageWithKeyPath(Global.keyAcc, buyerID.AsByteArray().AsString());
 
+
+            if (purData.Length == 0 || buyerData.Length == 0 ){
+                return 0;
+            }
+            else{
+                Purchase purchase = (Purchase)purData.Deserialize();
+                if(purchase.finished){
+                    return 0;
+                }
+                else{
+                    User escrow = GetEscrow();
+                    escrow.balance -= purchase.amount;
+
+
+
+                    User seller = 
+                        
+                    purchase.finished = true;
+                    
+                    NuIO.SetStorageWithKeyPath(escrow.Serialize(), Global.keyAcc, "0");
+                }
+            }
+        }
 
         /**
             Start a new game. Only the owner account can do it. 
