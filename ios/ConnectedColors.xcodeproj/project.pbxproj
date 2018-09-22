@@ -27,6 +27,7 @@
 		CACB4E982156CAED007BCA42 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E972156CAED007BCA42 /* Restaurant.swift */; };
 		CACB4E9B2156CEDB007BCA42 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9A2156CEDB007BCA42 /* RestaurantViewController.swift */; };
 		CACB4E9D2156CF2A007BCA42 /* RestaurantWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9C2156CF2A007BCA42 /* RestaurantWorker.swift */; };
+		CACB4EA02156DE8B007BCA42 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9F2156DE8B007BCA42 /* HistoryViewController.swift */; };
 		CACC4454215600B200FFE413 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4453215600B200FFE413 /* Locale.swift */; };
 		CACC4456215600CC00FFE413 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4455215600CC00FFE413 /* DateFormatter.swift */; };
 		CACC4458215600E300FFE413 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4457215600E300FFE413 /* String.swift */; };
@@ -65,6 +66,7 @@
 		CACB4E972156CAED007BCA42 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		CACB4E9A2156CEDB007BCA42 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		CACB4E9C2156CF2A007BCA42 /* RestaurantWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantWorker.swift; sourceTree = "<group>"; };
+		CACB4E9F2156DE8B007BCA42 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		CACC4453215600B200FFE413 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		CACC4455215600CC00FFE413 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		CACC4457215600E300FFE413 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -188,6 +190,14 @@
 			path = Restaurant;
 			sourceTree = "<group>";
 		};
+		CACB4E9E2156DE76007BCA42 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				CACB4E9F2156DE8B007BCA42 /* HistoryViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		CACC44522156009100FFE413 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 		CAF336D62155DB36002EF562 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CACB4E9E2156DE76007BCA42 /* History */,
 				CACB4E992156CEC8007BCA42 /* Restaurant */,
 				CACB4E932156A363007BCA42 /* Transfer */,
 				CACB4E8C21569137007BCA42 /* Profile */,
@@ -398,6 +409,7 @@
 				CACB4E8021567924007BCA42 /* MyTabBarViewController.swift in Sources */,
 				CACB4E8B21568237007BCA42 /* UITableView.swift in Sources */,
 				CACB4E7E21567426007BCA42 /* Authentication.swift in Sources */,
+				CACB4EA02156DE8B007BCA42 /* HistoryViewController.swift in Sources */,
 				CAF336EB2155E1A6002EF562 /* Address.swift in Sources */,
 				CAF336ED2155E3B1002EF562 /* MaskedRelatedBankAccount.swift in Sources */,
 				BF6F13FA1E4E58C90018D56E /* ColorSwitchViewController.swift in Sources */,

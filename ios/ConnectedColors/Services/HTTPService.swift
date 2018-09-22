@@ -54,7 +54,7 @@ class RestaurantService: RestaurantProtocol {
             .validate()
             .responseJSON(queue: utilityQueue) { (response) in
                 guard response.result.isSuccess else {
-                    print("Error fetching users")
+                    print("Error fetching restaurants")
                     complete(.Failure(error: HTTPError.getRestaurants))
                     return
                 }

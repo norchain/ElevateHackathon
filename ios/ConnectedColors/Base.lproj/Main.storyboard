@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2954.4000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="3893.5999999999999" y="137.18140929535232"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="F0W-m9-v3Y">
@@ -184,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="621.60000000000002" y="423.23838080959524"/>
         </scene>
-        <!--History-->
+        <!--History View Controller-->
         <scene sceneID="iIb-RT-bIE">
             <objects>
-                <viewController id="W2h-RI-R4H" sceneMemberID="viewController">
+                <viewController id="W2h-RI-R4H" customClass="HistoryViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TaY-8g-Ysb"/>
                         <viewControllerLayoutGuide type="bottom" id="zFA-Vd-Vud"/>
@@ -195,13 +195,28 @@
                     <view key="view" contentMode="scaleToFill" id="pZv-Rj-a8T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SR8-Lh-UiM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SR8-Lh-UiM" secondAttribute="trailing" id="6Fg-zG-FIK"/>
+                            <constraint firstItem="SR8-Lh-UiM" firstAttribute="top" secondItem="TaY-8g-Ysb" secondAttribute="bottom" id="WpZ-KM-y1K"/>
+                            <constraint firstItem="zFA-Vd-Vud" firstAttribute="top" secondItem="SR8-Lh-UiM" secondAttribute="bottom" id="lst-8q-90j"/>
+                            <constraint firstItem="SR8-Lh-UiM" firstAttribute="leading" secondItem="pZv-Rj-a8T" secondAttribute="leading" id="rUH-y7-TTH"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" id="4r8-iQ-7bR"/>
+                    <navigationItem key="navigationItem" id="3HL-XD-XVQ"/>
+                    <connections>
+                        <outlet property="tableview" destination="SR8-Lh-UiM" id="7mb-aJ-kZK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JO-9P-ppU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317" y="-242"/>
+            <point key="canvasLocation" x="621.60000000000002" y="-242.42878560719643"/>
         </scene>
         <!--My Tab Bar View Controller-->
         <scene sceneID="X9r-D7-It5">
@@ -215,8 +230,8 @@
                     <connections>
                         <segue destination="gy1-qY-gz9" kind="relationship" relationship="viewControllers" id="RNP-Z4-TQT"/>
                         <segue destination="Ux7-tY-a3R" kind="relationship" relationship="viewControllers" id="XOE-Tn-RLD"/>
-                        <segue destination="W2h-RI-R4H" kind="relationship" relationship="viewControllers" id="zGY-ke-ZHJ"/>
-                        <segue destination="CDE-Tx-nKi" kind="relationship" relationship="viewControllers" id="jT4-NK-L2F"/>
+                        <segue destination="fwj-rL-VDL" kind="relationship" relationship="viewControllers" id="zGY-ke-ZHJ"/>
+                        <segue destination="ST8-Aq-1OK" kind="relationship" relationship="viewControllers" id="jT4-NK-L2F"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8D-b3-7eM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,7 +276,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tj9-by-ryq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="444" y="-520"/>
+            <point key="canvasLocation" x="1383.2" y="-520.38980509745136"/>
         </scene>
         <!--Transfer View Controller-->
         <scene sceneID="dKm-lg-mJp">
@@ -279,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZmH-By-GiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1278" y="-520"/>
+            <point key="canvasLocation" x="2216.8000000000002" y="-520.38980509745136"/>
         </scene>
         <!--Users-->
         <scene sceneID="Z4U-Q6-qLQ">
@@ -319,7 +334,7 @@
             </objects>
             <point key="canvasLocation" x="-317.60000000000002" y="423.23838080959524"/>
         </scene>
-        <!--Restaurant-->
+        <!--Restaurant View Controller-->
         <scene sceneID="YML-Hf-pL9">
             <objects>
                 <viewController id="CDE-Tx-nKi" customClass="RestaurantViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
@@ -330,13 +345,66 @@
                     <view key="view" contentMode="scaleToFill" id="hKj-Xs-w78">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YWx-vv-dEH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YWx-vv-dEH" firstAttribute="width" secondItem="hKj-Xs-w78" secondAttribute="width" id="75v-59-xuh"/>
+                            <constraint firstItem="YWx-vv-dEH" firstAttribute="centerX" secondItem="hKj-Xs-w78" secondAttribute="centerX" id="ar4-B1-CLg"/>
+                            <constraint firstItem="YWx-vv-dEH" firstAttribute="top" secondItem="3jX-QP-edR" secondAttribute="bottom" id="gLp-Ac-6GM"/>
+                            <constraint firstItem="xl8-zZ-Z4v" firstAttribute="top" secondItem="YWx-vv-dEH" secondAttribute="bottom" id="jWX-p1-QBF"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Restaurant" id="dXj-jG-Ibh"/>
+                    <navigationItem key="navigationItem" id="HiY-0u-Hfv"/>
+                    <connections>
+                        <outlet property="tableview" destination="YWx-vv-dEH" id="eE1-1p-IHF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJl-fm-WCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-361" y="1208"/>
+            <point key="canvasLocation" x="576.79999999999995" y="1207.6461769115442"/>
+        </scene>
+        <!--Restaurants-->
+        <scene sceneID="ikk-Yd-q1g">
+            <objects>
+                <navigationController title="Restaurants" automaticallyAdjustsScrollViewInsets="NO" id="ST8-Aq-1OK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Restaurant" id="dXj-jG-Ibh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vqp-8c-4Sl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CDE-Tx-nKi" kind="relationship" relationship="rootViewController" id="NTW-tc-u8w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grU-3D-Aan" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362.39999999999998" y="1207.6461769115442"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="YBE-Oz-1Ba">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fwj-rL-VDL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" id="4r8-iQ-7bR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eSW-fA-DDF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="W2h-RI-R4H" kind="relationship" relationship="rootViewController" id="Yxf-B0-3Fo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bnD-ab-mjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317.60000000000002" y="-242.42878560719643"/>
         </scene>
     </scenes>
     <resources>
