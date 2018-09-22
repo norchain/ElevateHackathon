@@ -8,4 +8,6 @@ target 'ConnectedColors' do
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'ObjectMapper', '~> 3.3'
+  pod 'ILLoginKit'
+  pod 'JGProgressHUD'
 end

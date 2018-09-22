@@ -14,6 +14,9 @@
 		BF6F13FD1E4E58C90018D56E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F13FB1E4E58C90018D56E /* Main.storyboard */; };
 		BF6F13FF1E4E58C90018D56E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6F13FE1E4E58C90018D56E /* Assets.xcassets */; };
 		BF6F14021E4E58C90018D56E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F14001E4E58C90018D56E /* LaunchScreen.storyboard */; };
+		CACB4E7C21567112007BCA42 /* MyLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E7B21567112007BCA42 /* MyLoginViewController.swift */; };
+		CACB4E7E21567426007BCA42 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E7D21567426007BCA42 /* Authentication.swift */; };
+		CACB4E8021567924007BCA42 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E7F21567924007BCA42 /* MyTabBarViewController.swift */; };
 		CACC4454215600B200FFE413 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4453215600B200FFE413 /* Locale.swift */; };
 		CACC4456215600CC00FFE413 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4455215600CC00FFE413 /* DateFormatter.swift */; };
 		CACC4458215600E300FFE413 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4457215600E300FFE413 /* String.swift */; };
@@ -39,6 +42,9 @@
 		BF6F14031E4E58C90018D56E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6183AF7574E064B90BB6B20 /* Pods_ConnectedColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectedColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectedColors.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors.release.xcconfig"; sourceTree = "<group>"; };
+		CACB4E7B21567112007BCA42 /* MyLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyLoginViewController.swift; path = ConnectedColors/Scenes/Login/MyLoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		CACB4E7D21567426007BCA42 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		CACB4E7F21567924007BCA42 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		CACC4453215600B200FFE413 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		CACC4455215600CC00FFE413 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		CACC4457215600E300FFE413 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -114,8 +120,18 @@
 				BF6F13FE1E4E58C90018D56E /* Assets.xcassets */,
 				BF6F14001E4E58C90018D56E /* LaunchScreen.storyboard */,
 				BF6F14031E4E58C90018D56E /* Info.plist */,
+				CACB4E7F21567924007BCA42 /* MyTabBarViewController.swift */,
 			);
 			path = ConnectedColors;
+			sourceTree = "<group>";
+		};
+		CACB4E7A215670F8007BCA42 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CACB4E7B21567112007BCA42 /* MyLoginViewController.swift */,
+			);
+			name = Login;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		CACC44522156009100FFE413 /* Extensions */ = {
@@ -131,6 +147,7 @@
 		CAF336D62155DB36002EF562 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CACB4E7A215670F8007BCA42 /* Login */,
 				CAF336E32155DB9F002EF562 /* Restaurant */,
 			);
 			path = Scenes;
@@ -149,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				CAF336E52155DEE1002EF562 /* HTTPService.swift */,
+				CACB4E7D21567426007BCA42 /* Authentication.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -263,14 +281,26 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -284,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CACB4E7C21567112007BCA42 /* MyLoginViewController.swift in Sources */,
 				CACC4456215600CC00FFE413 /* DateFormatter.swift in Sources */,
 				CACC4458215600E300FFE413 /* String.swift in Sources */,
 				CACC4454215600B200FFE413 /* Locale.swift in Sources */,
@@ -291,6 +322,8 @@
 				CAED11662155EE9600D44F29 /* RestaurantViewController.swift in Sources */,
 				CAF336DE2155DB84002EF562 /* RestaurantWorker.swift in Sources */,
 				CAF336E62155DEE1002EF562 /* HTTPService.swift in Sources */,
+				CACB4E8021567924007BCA42 /* MyTabBarViewController.swift in Sources */,
+				CACB4E7E21567426007BCA42 /* Authentication.swift in Sources */,
 				CAF336EB2155E1A6002EF562 /* Address.swift in Sources */,
 				CAF336ED2155E3B1002EF562 /* MaskedRelatedBankAccount.swift in Sources */,
 				BF6F13FA1E4E58C90018D56E /* ColorSwitchViewController.swift in Sources */,
