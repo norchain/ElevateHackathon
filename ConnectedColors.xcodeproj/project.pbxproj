@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		198C29D60BAD890FCDEBB497 /* Pods_ConnectedColors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6183AF7574E064B90BB6B20 /* Pods_ConnectedColors.framework */; };
 		BF362D852108C80300F7397B /* ColorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF362D842108C80300F7397B /* ColorService.swift */; };
 		BF6F13F81E4E58C90018D56E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F13F71E4E58C90018D56E /* AppDelegate.swift */; };
 		BF6F13FA1E4E58C90018D56E /* ColorSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6F13F91E4E58C90018D56E /* ColorSwitchViewController.swift */; };
 		BF6F13FD1E4E58C90018D56E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F13FB1E4E58C90018D56E /* Main.storyboard */; };
 		BF6F13FF1E4E58C90018D56E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6F13FE1E4E58C90018D56E /* Assets.xcassets */; };
 		BF6F14021E4E58C90018D56E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F14001E4E58C90018D56E /* LaunchScreen.storyboard */; };
+		CAF336D52155DAC9002EF562 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CAF336D42155DAC9002EF562 /* Podfile */; };
+		CAF336DD2155DB84002EF562 /* RestaurantPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336D72155DB84002EF562 /* RestaurantPresenter.swift */; };
+		CAF336DE2155DB84002EF562 /* RestaurantWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336D82155DB84002EF562 /* RestaurantWorker.swift */; };
+		CAF336DF2155DB84002EF562 /* RestaurantRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336D92155DB84002EF562 /* RestaurantRouter.swift */; };
+		CAF336E02155DB84002EF562 /* RestaurantModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336DA2155DB84002EF562 /* RestaurantModels.swift */; };
+		CAF336E12155DB84002EF562 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336DB2155DB84002EF562 /* RestaurantViewController.swift */; };
+		CAF336E22155DB84002EF562 /* RestaurantInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336DC2155DB84002EF562 /* RestaurantInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BE2B0B84566FCC62D34C652 /* Pods-ConnectedColors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectedColors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors.debug.xcconfig"; sourceTree = "<group>"; };
 		BF362D842108C80300F7397B /* ColorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorService.swift; sourceTree = "<group>"; };
 		BF6F13F41E4E58C90018D56E /* ConnectedColors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectedColors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6F13F71E4E58C90018D56E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +33,15 @@
 		BF6F13FE1E4E58C90018D56E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF6F14011E4E58C90018D56E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF6F14031E4E58C90018D56E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6183AF7574E064B90BB6B20 /* Pods_ConnectedColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectedColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectedColors.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors.release.xcconfig"; sourceTree = "<group>"; };
+		CAF336D42155DAC9002EF562 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CAF336D72155DB84002EF562 /* RestaurantPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPresenter.swift; sourceTree = "<group>"; };
+		CAF336D82155DB84002EF562 /* RestaurantWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantWorker.swift; sourceTree = "<group>"; };
+		CAF336D92155DB84002EF562 /* RestaurantRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantRouter.swift; sourceTree = "<group>"; };
+		CAF336DA2155DB84002EF562 /* RestaurantModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModels.swift; sourceTree = "<group>"; };
+		CAF336DB2155DB84002EF562 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		CAF336DC2155DB84002EF562 /* RestaurantInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198C29D60BAD890FCDEBB497 /* Pods_ConnectedColors.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51C5C26805379ED7BBEC27A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6183AF7574E064B90BB6B20 /* Pods_ConnectedColors.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A7743CF6A51DCD974CE1AA3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7BE2B0B84566FCC62D34C652 /* Pods-ConnectedColors.debug.xcconfig */,
+				C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BF6F13EB1E4E58C90018D56E = {
 			isa = PBXGroup;
 			children = (
+				CAF336D42155DAC9002EF562 /* Podfile */,
 				BF6F13F61E4E58C90018D56E /* ConnectedColors */,
 				BF6F13F51E4E58C90018D56E /* Products */,
+				8A7743CF6A51DCD974CE1AA3 /* Pods */,
+				51C5C26805379ED7BBEC27A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +95,8 @@
 		BF6F13F61E4E58C90018D56E /* ConnectedColors */ = {
 			isa = PBXGroup;
 			children = (
+				CAF336E42155DBBA002EF562 /* Services */,
+				CAF336D62155DB36002EF562 /* Scenes */,
 				BF6F13F71E4E58C90018D56E /* AppDelegate.swift */,
 				BF6F13F91E4E58C90018D56E /* ColorSwitchViewController.swift */,
 				BF362D842108C80300F7397B /* ColorService.swift */,
@@ -67,6 +108,34 @@
 			path = ConnectedColors;
 			sourceTree = "<group>";
 		};
+		CAF336D62155DB36002EF562 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CAF336E32155DB9F002EF562 /* Restaurant */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CAF336E32155DB9F002EF562 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				CAF336D72155DB84002EF562 /* RestaurantPresenter.swift */,
+				CAF336D82155DB84002EF562 /* RestaurantWorker.swift */,
+				CAF336D92155DB84002EF562 /* RestaurantRouter.swift */,
+				CAF336DA2155DB84002EF562 /* RestaurantModels.swift */,
+				CAF336DB2155DB84002EF562 /* RestaurantViewController.swift */,
+				CAF336DC2155DB84002EF562 /* RestaurantInteractor.swift */,
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
+		CAF336E42155DBBA002EF562 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF6F14061E4E58C90018D56E /* Build configuration list for PBXNativeTarget "ConnectedColors" */;
 			buildPhases = (
+				9FCF0730C929547647F4F3FF /* [CP] Check Pods Manifest.lock */,
 				BF6F13F01E4E58C90018D56E /* Sources */,
 				BF6F13F11E4E58C90018D56E /* Frameworks */,
 				BF6F13F21E4E58C90018D56E /* Resources */,
+				AE383859771305CEE9E30A5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,11 +201,53 @@
 			files = (
 				BF6F14021E4E58C90018D56E /* LaunchScreen.storyboard in Resources */,
 				BF6F13FF1E4E58C90018D56E /* Assets.xcassets in Resources */,
+				CAF336D52155DAC9002EF562 /* Podfile in Resources */,
 				BF6F13FD1E4E58C90018D56E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FCF0730C929547647F4F3FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConnectedColors-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE383859771305CEE9E30A5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF6F13F01E4E58C90018D56E /* Sources */ = {
@@ -142,6 +255,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF362D852108C80300F7397B /* ColorService.swift in Sources */,
+				CAF336E12155DB84002EF562 /* RestaurantViewController.swift in Sources */,
+				CAF336DE2155DB84002EF562 /* RestaurantWorker.swift in Sources */,
+				CAF336DD2155DB84002EF562 /* RestaurantPresenter.swift in Sources */,
+				CAF336DF2155DB84002EF562 /* RestaurantRouter.swift in Sources */,
+				CAF336E22155DB84002EF562 /* RestaurantInteractor.swift in Sources */,
+				CAF336E02155DB84002EF562 /* RestaurantModels.swift in Sources */,
 				BF6F13FA1E4E58C90018D56E /* ColorSwitchViewController.swift in Sources */,
 				BF6F13F81E4E58C90018D56E /* AppDelegate.swift in Sources */,
 			);
@@ -274,6 +393,7 @@
 		};
 		BF6F14071E4E58C90018D56E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BE2B0B84566FCC62D34C652 /* Pods-ConnectedColors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8JLCNGAU2F;
@@ -287,6 +407,7 @@
 		};
 		BF6F14081E4E58C90018D56E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8JLCNGAU2F;
