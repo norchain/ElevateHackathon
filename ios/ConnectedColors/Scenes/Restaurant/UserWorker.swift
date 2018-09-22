@@ -12,7 +12,7 @@
 
 import UIKit
 
-class RestaurantWorker
+class UserWorker
 {
     var httpService: HTTPServiceProtocol
     
@@ -24,4 +24,7 @@ class RestaurantWorker
         httpService.getAllUsers(complete: complete)
     }
     
+    func getUser(id: String, complete: @escaping UserCompleteHandler) {
+        httpService.getCustomerBy(id: id, complete: complete)
+    }
 }

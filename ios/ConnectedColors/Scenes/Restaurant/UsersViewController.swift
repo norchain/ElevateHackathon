@@ -12,7 +12,7 @@ import ViewAnimator
 
 class UsersViewController: UITableViewController {
     
-    var worker: RestaurantWorker = RestaurantWorker(http: HTTPService())
+    var worker: UserWorker = UserWorker(http: HTTPService())
     
     var users: [User] = []
     
