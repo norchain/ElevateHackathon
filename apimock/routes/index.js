@@ -17,8 +17,15 @@ const reviewModel = mongoose.model('review', {
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/*', function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', "*" );
+    next();
+});
+
+// global controller
+router.post('/*',function(req,res,next){
+    res.header('Access-Control-Allow-Origin', "*" );
+    next();
 });
 
 router.get('/restaurants', function(req, res, next) {
@@ -29,7 +36,7 @@ router.get('/restaurants', function(req, res, next) {
         restaurants.forEach(function(restaurant) {
             restaurantsMap[restaurant._id] = restaurant;
         });
-
+		
         res.send(restaurantsMap);
     });
 })
