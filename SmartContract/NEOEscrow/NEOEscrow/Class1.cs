@@ -29,12 +29,12 @@ namespace Escrow
             public const string keyNumEntries = "numEntries";
             public const string keyNumAccounts = "nAcc";
             public const string keyNumProducts = "nProd";
-            public const string keyNumGames = "numGames";
+            public const string keyNumPurchases = "nPurch";
 
 
             public const string keyAcc = "a";
             public const string keyProd = "p";
-            public const string keyEntry = "e";
+            public const string keyPurchase = "e";
             public const string keyGame = "g";
 
             public const long MaxEntries = 999999;
@@ -65,6 +65,7 @@ namespace Escrow
 
         [Serializable]
         public class Purchase{
+            public BigInteger index;
             public BigInteger buyerId;
             public BigInteger sellerId;
             public BigInteger prodId;
@@ -82,14 +83,6 @@ namespace Escrow
             public byte[] winnerPick;
         }
 
-        /**
-            Deploy or reset the game world. Only the owner account can do it. 
-        */
-        private static bool Deploy(){
-            BigInteger i = 0;
-            NuIO.SetStorageWithKey(Global.keyNumGames, Op.BigInt2Bytes(i));
-            return true;
-        }
 
 
         public static BigInteger NumAccounts(){
@@ -97,6 +90,11 @@ namespace Escrow
         }
 
         public static BigInteger NumProducts(){
+            return NuIO.GetStorageWithKey(Global.keyNumProducts).AsBigInteger();
+        }
+
+        public static BigInteger NumPurchase()
+        {
             return NuIO.GetStorageWithKey(Global.keyNumProducts).AsBigInteger();
         }
 
@@ -136,23 +134,57 @@ namespace Escrow
             return true;
         }
 
+        private static User GetEscrow(){
+            byte[] userData = NuIO.GetStorageWithKeyPath(Global.keyAcc, "0");
+            User escrow = (User)userData.Deserialize();
+            return escrow;
+        }
 
         //
-        public static BigInteger PostEscrow(BigInteger buyerId, BigInteger sellerId, BigInteger prodID, BigInteger num){
+        public static BigInteger PostPurchase(BigInteger buyerId, BigInteger sellerId, BigInteger prodID, BigInteger num){
             byte[] buyerData = NuIO.GetStorageWithKeyPath(Global.keyAcc, buyerId.AsByteArray().AsString());
             byte[] sellerData = NuIO.GetStorageWithKeyPath(Global.keyAcc, sellerId.AsByteArray().AsString());
-            byte[] prodData = NuIO.GetStorageWithKeyPath(Global.keyAcc, prodID.AsByteArray().AsString());
+            byte[] prodData = NuIO.GetStorageWithKeyPath(Global.keyProd, prodID.AsByteArray().AsString());
+
 
 
             if(buyerData.Length == 0 || sellerData.Length == 0 ||  prodData.Length == 0){
                 return 0;
             }
             else{
-                
-                User user = (User)buyerData.Deserialize();
+                BigInteger nowNum = NuIO.GetStorageWithKey(Global.keyNumPurchases).AsBigInteger() + 1;
 
+                Product product = (Product)prodData.Deserialize();
+                User buyer = (User)buyerData.Deserialize();
+                BigInteger cost = product.price * num;
+                if(cost > buyer.balance){
+                    return 0;
+                }
+                else{
+                    User escrow = GetEscrow();
+                    escrow.balance += cost;
+                    buyer.balance -= cost;
+
+                    Purchase purchase = new Purchase()
+                    {
+                        index = nowNum,
+                        buyerId = buyerId,
+                        sellerId = sellerId,
+                        prodId = prodID,
+                        number = num,
+                        finished = false
+                    };
+                    byte[] purData = purchase.Serialize();
+
+                    NuIO.SetStorageWithKeyPath(purData.Serialize(), Global.keyAcc, NumProducts().AsByteArray().AsString());
+                    NuIO.SetStorageWithKey(Global.keyNumPurchases, nowNum.AsByteArray());
+
+                    return nowNum; 
+                }
             }
         }
+
+
 
         /**
             Start a new game. Only the owner account can do it. 
