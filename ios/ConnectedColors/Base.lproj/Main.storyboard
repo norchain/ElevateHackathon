@@ -115,8 +115,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="W2h-RI-R4H" kind="relationship" relationship="viewControllers" id="zGY-ke-ZHJ"/>
                         <segue destination="g8N-gR-3jA" kind="relationship" relationship="viewControllers" id="XOE-Tn-RLD"/>
+                        <segue destination="W2h-RI-R4H" kind="relationship" relationship="viewControllers" id="zGY-ke-ZHJ"/>
                         <segue destination="DGi-9G-dYy" kind="relationship" relationship="viewControllers" id="RNP-Z4-TQT"/>
                     </connections>
                 </tabBarController>
@@ -150,16 +150,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9Uf-Hs-9YS">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Uf-Hs-9YS" id="jgW-Wl-1Wg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="DGi-9G-dYy" id="UZS-yK-XJt"/>
                             <outlet property="delegate" destination="DGi-9G-dYy" id="p8c-Aw-u5C"/>
