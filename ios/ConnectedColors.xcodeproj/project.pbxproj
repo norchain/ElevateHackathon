@@ -22,7 +22,7 @@
 		CACB4E8921568226007BCA42 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E8821568226007BCA42 /* BaseTableViewCell.swift */; };
 		CACB4E8B21568237007BCA42 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E8A21568237007BCA42 /* UITableView.swift */; };
 		CACB4E8E21569157007BCA42 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E8D21569157007BCA42 /* ProfileViewController.swift */; };
-		CACB4E9021569B2E007BCA42 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E8F21569B2E007BCA42 /* UIViewController.swift */; };
+		CACB4E9221569D0D007BCA42 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9121569D0D007BCA42 /* Transfer.swift */; };
 		CACC4454215600B200FFE413 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4453215600B200FFE413 /* Locale.swift */; };
 		CACC4456215600CC00FFE413 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4455215600CC00FFE413 /* DateFormatter.swift */; };
 		CACC4458215600E300FFE413 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4457215600E300FFE413 /* String.swift */; };
@@ -56,7 +56,7 @@
 		CACB4E8821568226007BCA42 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		CACB4E8A21568237007BCA42 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		CACB4E8D21569157007BCA42 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		CACB4E8F21569B2E007BCA42 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		CACB4E9121569D0D007BCA42 /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		CACC4453215600B200FFE413 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		CACC4455215600CC00FFE413 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		CACC4457215600E300FFE413 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 				CAF336EA2155E1A6002EF562 /* Address.swift */,
 				CAF336EC2155E3B1002EF562 /* MaskedRelatedBankAccount.swift */,
 				CAF336EE2155E47E002EF562 /* MaskedRelatedCreditCardAccount.swift */,
-				CACB4E8F21569B2E007BCA42 /* UIViewController.swift */,
+				CACB4E9121569D0D007BCA42 /* Transfer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,6 +317,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
@@ -330,6 +331,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
@@ -365,10 +367,10 @@
 				CACB4E8B21568237007BCA42 /* UITableView.swift in Sources */,
 				CACB4E7E21567426007BCA42 /* Authentication.swift in Sources */,
 				CAF336EB2155E1A6002EF562 /* Address.swift in Sources */,
-				CACB4E9021569B2E007BCA42 /* UIViewController.swift in Sources */,
 				CAF336ED2155E3B1002EF562 /* MaskedRelatedBankAccount.swift in Sources */,
 				BF6F13FA1E4E58C90018D56E /* ColorSwitchViewController.swift in Sources */,
 				BF6F13F81E4E58C90018D56E /* AppDelegate.swift in Sources */,
+				CACB4E9221569D0D007BCA42 /* Transfer.swift in Sources */,
 				CAF336E92155DF73002EF562 /* User.swift in Sources */,
 				CACB4E8521567E87007BCA42 /* UserTableViewCell.swift in Sources */,
 				CAF336EF2155E47E002EF562 /* MaskedRelatedCreditCardAccount.swift in Sources */,
