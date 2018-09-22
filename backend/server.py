@@ -7,6 +7,9 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/Elevate"
 mongo = PyMongo(app)
 
+@app.route("/", methods=["POST", "GET"])
+def home():
+    return "hello"
 
 @app.route("/review", methods=['POST', 'GET'])
 def review():
