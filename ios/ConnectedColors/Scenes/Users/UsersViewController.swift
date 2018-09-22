@@ -74,6 +74,9 @@ class UsersViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.cellType, for: indexPath)
         if let cell = cell as? UserTableViewCell {
             cell.configure(with: filterUsers[indexPath.row])
+            
+            
+            
         }
         
         return cell

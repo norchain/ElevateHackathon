@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
+
+
 protocol HTTPServiceProtocol {
     func getAllUsers(complete: @escaping UsersCompleteHandler)
     func getCustomerBy(id: String, complete: @escaping UserCompleteHandler)
@@ -43,8 +45,11 @@ typealias TransferHandler = (HTTPResult<Transfer>) -> Void
 typealias RestaurantsHandler = (HTTPResult<[Restaurant]>) -> Void
 
 class RestaurantService: RestaurantProtocol {
+    //let urlHost = "http://ec2-13-59-100-20.us-east-2.compute.amazonaws.com/restaurants"
+    let urlHost = "http://192.168.1.3:3000/restaurants"
+    
     func getAllRestaurants(complete: @escaping RestaurantsHandler) {
-        guard let url = URL(string: "http://ec2-13-59-100-20.us-east-2.compute.amazonaws.com/restaurants") else {
+        guard let url = URL(string: urlHost) else {
             complete(.Failure(error: HTTPError.invalidURL))
             return
         }
@@ -66,6 +71,7 @@ class RestaurantService: RestaurantProtocol {
                 }
                 
                 if let json = json  {
+                    print(json)
                     var rests: [Restaurant] = []
                     for (_, value) in json {
                         if let dic = value as? [String: Any], let rest = Restaurant(JSON: dic) {
