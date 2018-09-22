@@ -14,7 +14,14 @@ import UIKit
 
 class RestaurantWorker
 {
-  func doSomeWork()
-  {
-  }
+    var httpService: HTTPServiceProtocol
+    
+    init(http: HTTPServiceProtocol) {
+        self.httpService = http
+    }
+    
+    func getUsers(complete: @escaping UsersCompleteHandler) {
+        httpService.getAllUsers(complete: complete)
+    }
+    
 }

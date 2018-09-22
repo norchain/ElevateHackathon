@@ -14,13 +14,14 @@
 		BF6F13FD1E4E58C90018D56E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F13FB1E4E58C90018D56E /* Main.storyboard */; };
 		BF6F13FF1E4E58C90018D56E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6F13FE1E4E58C90018D56E /* Assets.xcassets */; };
 		BF6F14021E4E58C90018D56E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F14001E4E58C90018D56E /* LaunchScreen.storyboard */; };
+		CAED11662155EE9600D44F29 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAED11652155EE9600D44F29 /* RestaurantViewController.swift */; };
 		CAF336D52155DAC9002EF562 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CAF336D42155DAC9002EF562 /* Podfile */; };
-		CAF336DD2155DB84002EF562 /* RestaurantPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336D72155DB84002EF562 /* RestaurantPresenter.swift */; };
 		CAF336DE2155DB84002EF562 /* RestaurantWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336D82155DB84002EF562 /* RestaurantWorker.swift */; };
-		CAF336DF2155DB84002EF562 /* RestaurantRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336D92155DB84002EF562 /* RestaurantRouter.swift */; };
-		CAF336E02155DB84002EF562 /* RestaurantModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336DA2155DB84002EF562 /* RestaurantModels.swift */; };
-		CAF336E12155DB84002EF562 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336DB2155DB84002EF562 /* RestaurantViewController.swift */; };
-		CAF336E22155DB84002EF562 /* RestaurantInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336DC2155DB84002EF562 /* RestaurantInteractor.swift */; };
+		CAF336E62155DEE1002EF562 /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336E52155DEE1002EF562 /* HTTPService.swift */; };
+		CAF336E92155DF73002EF562 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336E82155DF73002EF562 /* User.swift */; };
+		CAF336EB2155E1A6002EF562 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336EA2155E1A6002EF562 /* Address.swift */; };
+		CAF336ED2155E3B1002EF562 /* MaskedRelatedBankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336EC2155E3B1002EF562 /* MaskedRelatedBankAccount.swift */; };
+		CAF336EF2155E47E002EF562 /* MaskedRelatedCreditCardAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF336EE2155E47E002EF562 /* MaskedRelatedCreditCardAccount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,13 +36,14 @@
 		BF6F14031E4E58C90018D56E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6183AF7574E064B90BB6B20 /* Pods_ConnectedColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectedColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectedColors.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors.release.xcconfig"; sourceTree = "<group>"; };
-		CAF336D42155DAC9002EF562 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		CAF336D72155DB84002EF562 /* RestaurantPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPresenter.swift; sourceTree = "<group>"; };
+		CAED11652155EE9600D44F29 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		CAF336D42155DAC9002EF562 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CAF336D82155DB84002EF562 /* RestaurantWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantWorker.swift; sourceTree = "<group>"; };
-		CAF336D92155DB84002EF562 /* RestaurantRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantRouter.swift; sourceTree = "<group>"; };
-		CAF336DA2155DB84002EF562 /* RestaurantModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModels.swift; sourceTree = "<group>"; };
-		CAF336DB2155DB84002EF562 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
-		CAF336DC2155DB84002EF562 /* RestaurantInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInteractor.swift; sourceTree = "<group>"; };
+		CAF336E52155DEE1002EF562 /* HTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
+		CAF336E82155DF73002EF562 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CAF336EA2155E1A6002EF562 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		CAF336EC2155E3B1002EF562 /* MaskedRelatedBankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedRelatedBankAccount.swift; sourceTree = "<group>"; };
+		CAF336EE2155E47E002EF562 /* MaskedRelatedCreditCardAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedRelatedCreditCardAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		BF6F13F61E4E58C90018D56E /* ConnectedColors */ = {
 			isa = PBXGroup;
 			children = (
+				CAF336E72155DF64002EF562 /* Models */,
 				CAF336E42155DBBA002EF562 /* Services */,
 				CAF336D62155DB36002EF562 /* Scenes */,
 				BF6F13F71E4E58C90018D56E /* AppDelegate.swift */,
@@ -119,12 +122,8 @@
 		CAF336E32155DB9F002EF562 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
-				CAF336D72155DB84002EF562 /* RestaurantPresenter.swift */,
 				CAF336D82155DB84002EF562 /* RestaurantWorker.swift */,
-				CAF336D92155DB84002EF562 /* RestaurantRouter.swift */,
-				CAF336DA2155DB84002EF562 /* RestaurantModels.swift */,
-				CAF336DB2155DB84002EF562 /* RestaurantViewController.swift */,
-				CAF336DC2155DB84002EF562 /* RestaurantInteractor.swift */,
+				CAED11652155EE9600D44F29 /* RestaurantViewController.swift */,
 			);
 			path = Restaurant;
 			sourceTree = "<group>";
@@ -132,8 +131,20 @@
 		CAF336E42155DBBA002EF562 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CAF336E52155DEE1002EF562 /* HTTPService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		CAF336E72155DF64002EF562 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CAF336E82155DF73002EF562 /* User.swift */,
+				CAF336EA2155E1A6002EF562 /* Address.swift */,
+				CAF336EC2155E3B1002EF562 /* MaskedRelatedBankAccount.swift */,
+				CAF336EE2155E47E002EF562 /* MaskedRelatedCreditCardAccount.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,11 +246,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,14 +268,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF362D852108C80300F7397B /* ColorService.swift in Sources */,
-				CAF336E12155DB84002EF562 /* RestaurantViewController.swift in Sources */,
+				CAED11662155EE9600D44F29 /* RestaurantViewController.swift in Sources */,
 				CAF336DE2155DB84002EF562 /* RestaurantWorker.swift in Sources */,
-				CAF336DD2155DB84002EF562 /* RestaurantPresenter.swift in Sources */,
-				CAF336DF2155DB84002EF562 /* RestaurantRouter.swift in Sources */,
-				CAF336E22155DB84002EF562 /* RestaurantInteractor.swift in Sources */,
-				CAF336E02155DB84002EF562 /* RestaurantModels.swift in Sources */,
+				CAF336E62155DEE1002EF562 /* HTTPService.swift in Sources */,
+				CAF336EB2155E1A6002EF562 /* Address.swift in Sources */,
+				CAF336ED2155E3B1002EF562 /* MaskedRelatedBankAccount.swift in Sources */,
 				BF6F13FA1E4E58C90018D56E /* ColorSwitchViewController.swift in Sources */,
 				BF6F13F81E4E58C90018D56E /* AppDelegate.swift in Sources */,
+				CAF336E92155DF73002EF562 /* User.swift in Sources */,
+				CAF336EF2155E47E002EF562 /* MaskedRelatedCreditCardAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
