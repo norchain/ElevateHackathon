@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zGj-hR-EBR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yrn-dA-4Rg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -216,6 +216,7 @@
                         <segue destination="gy1-qY-gz9" kind="relationship" relationship="viewControllers" id="RNP-Z4-TQT"/>
                         <segue destination="Ux7-tY-a3R" kind="relationship" relationship="viewControllers" id="XOE-Tn-RLD"/>
                         <segue destination="W2h-RI-R4H" kind="relationship" relationship="viewControllers" id="zGY-ke-ZHJ"/>
+                        <segue destination="CDE-Tx-nKi" kind="relationship" relationship="viewControllers" id="jT4-NK-L2F"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8D-b3-7eM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="444" y="-520"/>
         </scene>
-        <!--View Controller-->
+        <!--Transfer View Controller-->
         <scene sceneID="dKm-lg-mJp">
             <objects>
-                <viewController id="YHi-8A-f17" sceneMemberID="viewController">
+                <viewController id="YHi-8A-f17" customClass="TransferViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bIr-Zb-GNI"/>
                         <viewControllerLayoutGuide type="bottom" id="KOa-ny-JQm"/>
@@ -317,6 +318,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RjJ-fT-cIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-317.60000000000002" y="423.23838080959524"/>
+        </scene>
+        <!--Restaurant-->
+        <scene sceneID="YML-Hf-pL9">
+            <objects>
+                <viewController id="CDE-Tx-nKi" customClass="RestaurantViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3jX-QP-edR"/>
+                        <viewControllerLayoutGuide type="bottom" id="xl8-zZ-Z4v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hKj-Xs-w78">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Restaurant" id="dXj-jG-Ibh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uJl-fm-WCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-361" y="1208"/>
         </scene>
     </scenes>
     <resources>

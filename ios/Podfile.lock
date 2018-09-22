@@ -6,7 +6,7 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - Eureka (4.3.0)
+  - Eureka (4.2.0)
   - FBSDKCoreKit (4.36.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.31.0):
@@ -22,7 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - Eureka
+  - Eureka (~> 4.2.0)
   - ILLoginKit
   - JGProgressHUD
   - ObjectMapper (~> 3.3)
@@ -46,7 +46,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   FBSDKCoreKit: 3b8e6570eedb443f9fc4af196a7bf39f18e3a3d8
   FBSDKLoginKit: 95a252ddffd6919c0f132a02292f0824616d8709
   ILLoginKit: 6f717fa907114986b6914d1502bf8bd40b3720e5
@@ -56,6 +56,6 @@ SPEC CHECKSUMS:
   Validator: bf211c1d71b3f910d230c09c70e62429d0fef63a
   ViewAnimator: 20df9a24a076c6ee78b77a4dbf1943808c94954e
 
-PODFILE CHECKSUM: 14abf416b6a170b47dc218c8a9f7eef1f53f67d4
+PODFILE CHECKSUM: aa2b38a3ccb050b7cf4307533736edb424c1a980
 
 COCOAPODS: 1.5.3

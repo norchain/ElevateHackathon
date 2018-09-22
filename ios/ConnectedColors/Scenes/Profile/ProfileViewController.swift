@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let id = "8653b028-8365-436c-938f-85c99ff31e6e_c418b5e6-ef7a-4774-88bc-762f2e9adc53"
+        let id = UserDefaults.standard.string(forKey: "UserID") ?? ""
         
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
@@ -49,6 +49,7 @@ class ProfileViewController: UIViewController {
                 self?.occupationLabel.text = user.occupationIndustry
                 self?.incomeLabel.text = "\(user.totalIncome ?? 0)"
                 self?.relationshipLabel.text = user.relationshipStatus?.rawValue
+                
             case .Failure(let error):
                 self?.error = error.localizedDescription
             }

@@ -12,6 +12,7 @@ import FBSDKLoginKit
 import JGProgressHUD
 
 class MyLoginViewController: LoginViewController {
+    var worker: UserWorker = UserWorker(http: HTTPService())
 
     override func viewDidLoad() {
         configureAppearance()
@@ -58,13 +59,38 @@ extension MyLoginViewController: LoginViewControllerDelegate {
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-            let logined = Authentication().login(username: email, password: password)
-            hud.dismiss(animated: true)
+            let userId = Authentication().login(username: email, password: password)
             
-            if logined {
+            
+            if let userId = userId {
+                self.worker.getUser(id: userId, complete: { (result) in
+                    switch result {
+                    case .Success(let user):
+                        if let dic = user.maskedRelatedBankAccounts, let accounts = dic["individual"] {
+                            let kUser = "BankAccounts"
+                            
+                            if let encoded = try? JSONEncoder().encode(accounts) {
+                                UserDefaults.standard.set(encoded, forKey: kUser)
+                            }
+                        }
+                    case .Failure(let error):
+                        let alert = UIAlertController(title: "Something goes wrong: \(error.localizedDescription)", message: "please try again later", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                            self.dismiss(animated: true, completion: nil)
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                })
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MyTabBarViewController") as! UITabBarController
                 UIApplication.shared.keyWindow?.rootViewController = viewController
+            } else {
+                hud.dismiss(animated: true)
+                let alert = UIAlertController(title: "Wrong credential", message: "please check your email and password", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true)
             }
         })
         

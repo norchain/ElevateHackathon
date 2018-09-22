@@ -27,4 +27,8 @@ class UserWorker
     func getUser(id: String, complete: @escaping UserCompleteHandler) {
         httpService.getCustomerBy(id: id, complete: complete)
     }
+    
+    func transfer(amount: Int, currency: String, receipt: String, fromAccountID: String, toAccountID: String, complete: @escaping TransferHandler) {
+        httpService.transfer(amount: amount, currency: currency, receipt: receipt, fromAccountID: fromAccountID, toAccountID: toAccountID, complete: complete)
+    }
 }

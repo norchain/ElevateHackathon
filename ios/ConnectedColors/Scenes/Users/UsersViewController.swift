@@ -23,6 +23,8 @@ class UsersViewController: UITableViewController {
     }
     
     var error: String = ""
+    
+    var selectedUser: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,4 +79,16 @@ class UsersViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedUser = filterUsers[indexPath.row]
+        
+        performSegue(withIdentifier: "toTransfer", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toTransfer") {
+            let vc = segue.destination as! TransferViewController
+            vc.user = self.selectedUser
+        }
+    }
 }

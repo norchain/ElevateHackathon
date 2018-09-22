@@ -11,5 +11,5 @@ target 'ConnectedColors' do
   pod 'ILLoginKit'
   pod 'JGProgressHUD'
   pod 'ViewAnimator'
-  pod 'Eureka'
+  pod 'Eureka', '~> 4.2.0'
 end

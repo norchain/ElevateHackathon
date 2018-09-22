@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class MaskedRelatedBankAccount: Mappable {
+class MaskedRelatedBankAccount: Codable, Mappable {
     var branchNumber: String?
     var maskedAccountNumber: String?
     var accountId: String?
@@ -26,5 +26,4 @@ class MaskedRelatedBankAccount: Mappable {
         accountId           <- map["accountId"]
     }
 }
-
 
