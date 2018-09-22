@@ -10,6 +10,7 @@ import UIKit
 import ILLoginKit
 import FBSDKLoginKit
 import JGProgressHUD
+import RAMAnimatedTabBarController
 
 class MyLoginViewController: LoginViewController {
     var worker: UserWorker = UserWorker(http: HTTPService())
@@ -82,7 +83,7 @@ extension MyLoginViewController: LoginViewControllerDelegate {
                     }
                 })
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MyTabBarViewController") as! UITabBarController
+                let viewController = mainStoryboard.instantiateViewController(withIdentifier: "RAMAnimatedTabBarController") as! UITabBarController
                 UIApplication.shared.keyWindow?.rootViewController = viewController
             } else {
                 hud.dismiss(animated: true)
