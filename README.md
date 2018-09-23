@@ -1,10 +1,10 @@
-# Minority Community by Open Database
+# Connecting Communities by Open Database
 
 
 
 ## 1. Brief
 
-By utilizing blockchain tech, it's possible to build open databases with community's collaboration independent from internet tycoons. Powered by such databases, developers from different culture groups can reduce their cost in boostrapping their web applications to better serve specific audiences. Local bussiness and minorities would get more exposure and connections. 
+By utilizing blockchain tech, it's possible to build open databases with community's collaboration independent from internet tycoons. Powered by such databases, developers from different culture groups can reduce their cost in boostrapping their web applications to better serve specific audiences. Local bussiness and minorities would get more exposure and being connected with consumers.
 
 In the submission, we have:
 
