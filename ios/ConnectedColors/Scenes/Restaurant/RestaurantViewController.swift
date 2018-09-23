@@ -118,7 +118,7 @@ extension RestaurantViewController: UITableViewDataSource {
             cell.configure(with: restaurants[indexPath.row])
             if let strPath = restaurants[indexPath.row].TD_account {
                 cell.imageView?.image = UIImage(named:  "\(strPath).jpg")
-                cell.imageView?.contentMode = .scaleAspectFit
+//                cell.imageView?.contentMode = .scaleAspectFit
             }
         }
         

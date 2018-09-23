@@ -13,7 +13,7 @@ class UserTableViewCell: BaseTableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
 
-    @IBOutlet weak var imageView: UIImageView!
+//    @IBOutlet weak var imageView: UIImageView!
     
     override class var cellHeight: CGFloat { return 60.0 }
     
