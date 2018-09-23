@@ -1,10 +1,9 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {NavigationEnd, Router} from '@angular/router';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 declare interface TableData {
   headerRow: string[];
-  dataRows: string[][];
+  dataRows: any[];
 }
 
 @Component({
@@ -13,15 +12,40 @@ declare interface TableData {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  private headersAdditional: HttpHeaders;
   public tableData1: TableData;
+  private serverURL = 'http://localhost:3000';
+
+  constructor(private http: HttpClient) {
+  }
+
   ngOnInit() {
     this.tableData1 = {
-      headerRow: [ '', 'NAME', 'Ranking', 'Room', 'PRICE', 'QTY', 'AMOUNT'],
-      dataRows: [
-        ['card-2', '#jacket', 'Cozy 5 Stars Apartment', 'Barcelona, Spain', '5 stars', 'Standard Room', '899/night'],
-        ['card-1', '#pants',  'Office Studio', 'London, UK', '4.5 stars', 'City View', '1119/night'],
-        ['card-3', '#nothing', 'Beautiful Castle', 'Milan, Italy', '4 stars', 'Mountain View', '459/night']
-      ]
+      headerRow: ['', 'NAME', 'Description', 'Rating', '# of Votes', 'Avg Price / Person'],
+      dataRows: []
     };
+    this.http.get(this.serverURL + '/restaurants').subscribe(
+      (result) => {
+        Object.keys(result).forEach(key => {
+          const restaurant = result[key];
+          console.log(restaurant.TD_account);
+          this.tableData1.dataRows.push(
+            {
+              picture: 'card-1',
+              name: restaurant.name,
+              account: restaurant.TD_account,
+              description: restaurant.description,
+              stars: restaurant.rate,
+              counts: restaurant.total,
+              price: restaurant.price
+            }
+          );
+          this.tableData1.dataRows.sort((a, b) => {
+            if (a.stars > b.stars) { return -1; }
+            else if (a.stars < b.stars) { return 1; }
+            else return 0;
+          });
+        });
+      });
   }
 }

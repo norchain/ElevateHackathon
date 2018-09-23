@@ -36,6 +36,7 @@ import {
   MatStepperModule,
   MatDatepickerModule,
 } from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   exports: [
@@ -81,6 +82,7 @@ export class MaterialModule {}
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule
   ],
   providers: [],
