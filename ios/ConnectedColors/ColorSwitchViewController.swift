@@ -87,7 +87,7 @@ class ColorSwitchViewController: UIViewController, PeerGetMessageDelegate {
                             switch review {
                             case .Success(let re):
                                 self.dismiss(animated: true, completion: {
-                                
+                                    UserDefaults.standard.removeObject(forKey: "Purchase")
                                 })
                             case .Failure(let error):
                                 let alert = UIAlertController(title: "Rate failed", message: "", preferredStyle: .alert)

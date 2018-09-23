@@ -49,6 +49,10 @@ extension AppDelegate : ColorServiceDelegate {
     
     func connectedDevicesChanged(manager: ColorService, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
+            guard let accountsData = UserDefaults.standard.data(forKey: "Purchase"),
+                let rests = try? JSONDecoder().decode([Restaurant].self, from: accountsData), rests.count > 0 else {
+                return
+            }
             if connectedDevices.count > 0 {
                 if let delegate = self.delegate {
                     if delegate.loaded {
