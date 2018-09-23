@@ -21,36 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="57D-ZF-Mc0">
-                                <rect key="frame" x="26" y="50" width="105.5" height="80.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connections: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwt-mK-OVB">
-                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="V1C-Ia-VEW">
-                                        <rect key="frame" x="0.0" y="50.5" width="105.5" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI4-HQ-8IB">
-                                                <rect key="frame" x="0.0" y="0.0" width="51.5" height="30"/>
-                                                <state key="normal" title="Red"/>
-                                                <connections>
-                                                    <action selector="redTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5x-q5-caT"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQs-5d-gd8">
-                                                <rect key="frame" x="61.5" y="0.0" width="44" height="30"/>
-                                                <state key="normal" title="Yellow"/>
-                                                <connections>
-                                                    <action selector="yellowTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="s6g-Uc-ro8"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTB-PG-JHE">
                                 <rect key="frame" x="94" y="469" width="187.5" height="62.5"/>
                                 <constraints>
@@ -98,15 +68,29 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="57D-ZF-Mc0">
+                                <rect key="frame" x="0.0" y="87" width="105.5" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connections: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwt-mK-OVB">
+                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="GwP-1b-yjF"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="57D-ZF-Mc0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="1J5-Qg-TlP"/>
                             <constraint firstItem="FTB-PG-JHE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ES8-0U-8au"/>
                             <constraint firstItem="FTB-PG-JHE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="G5Q-fK-Wxp"/>
                             <constraint firstItem="FTB-PG-JHE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="IZN-WY-AbF"/>
-                            <constraint firstItem="57D-ZF-Mc0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="PAa-CX-44e"/>
+                            <constraint firstItem="57D-ZF-Mc0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LTc-Ui-tgJ"/>
                             <constraint firstItem="Jgu-MN-fUL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UN1-dH-Ets"/>
+                            <constraint firstItem="57D-ZF-Mc0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="e6l-jw-q6Q"/>
                             <constraint firstItem="ROt-kN-PJh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="175" id="fnN-2k-A38"/>
                             <constraint firstItem="ROt-kN-PJh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i2p-3K-kBU"/>
                             <constraint firstItem="ROt-kN-PJh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="l93-zT-owB"/>

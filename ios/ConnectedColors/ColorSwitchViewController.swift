@@ -90,9 +90,11 @@ class ColorSwitchViewController: UIViewController, PeerGetMessageDelegate {
                     DispatchQueue.main.async {
                         hud.textLabel.text = "Loading"
                         hud.show(in: self.view)
+                        if let app = UIApplication.shared.delegate as? AppDelegate {
+                            app.delegate = nil
+                        }
+
                     }
-                    
-                    
                     
                     let client = UserDefaults.standard.string(forKey: "UserID") ?? ""
                     let td = self.restuarant?.TD_account ?? ""
@@ -102,6 +104,9 @@ class ColorSwitchViewController: UIViewController, PeerGetMessageDelegate {
                         DispatchQueue.main.async {
                             hud.dismiss()
                             UserDefaults.standard.removeObject(forKey: "Purchase")
+                            if let app = UIApplication.shared.delegate as? AppDelegate {
+                                app.colorService.send(colorName: "red")
+                            }
                             switch review {
                             case .Success(let re):
                                 self.dismiss(animated: true, completion: {
