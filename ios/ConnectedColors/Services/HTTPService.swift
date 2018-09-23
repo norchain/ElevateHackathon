@@ -120,7 +120,7 @@ class RestaurantService: RestaurantProtocol {
     }
     
     func rate(client_id: String, td_account: String, stars: String, comment: String, complete: @escaping rateHandler) {
-        guard let url = URL(string: "http://192.168.1.3:3000/reviews/") else {
+        guard let url = URL(string: "http://192.168.1.3:3000/review/") else {
             complete(.Failure(error: HTTPError.invalidURL))
             return
         }
