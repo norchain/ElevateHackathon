@@ -14,7 +14,7 @@ In the submission, we have:
 4. [A simulation backend app](https://github.com/norchain/ElevateHackathon/tree/master/apimock) to mock blockchain,  for demostration purpose. 
 5. [An interesting donation iOS app](https://github.com/norchain/ElevateHackathon/tree/master/iPadDonation/Donation) for **Tap2Pay experience**. 
 
-The powerpoint is [HERE](http://35.230.188.187/intro).
+The powerpoint is [HERE](https://github.com/norchain/ElevateHackathon/blob/master/Elevate%20Hackathon.pptx).
 
 We also have an [Video](http://35.230.188.187/video) to demostrate the iOS app in bullet 2, along with the **Tap2Pay experience**.
 
