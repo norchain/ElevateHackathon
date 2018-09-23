@@ -18,7 +18,7 @@ const reviewModel = mongoose.model('review', {
 
 /* GET home page. */
 router.get('/*', function(req, res, next) {
-	res.header('Access-Control-Allow-Origin', "*" );
+    res.header('Access-Control-Allow-Origin', "*" );
     next();
 });
 
@@ -50,7 +50,7 @@ router.post('/review', function(req, res, next) {
         comment: req.body.comment
     })
     console.log(req.body)
-    reviewModel.updateOne({ client_id: req.body.client_id},
+    reviewModel.updateOne({ client_id: req.body.client_id, td_account: req.body.td_account},
         {
             stars: req.body.stars,
             comment: req.body.comment
