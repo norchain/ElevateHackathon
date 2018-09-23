@@ -14,6 +14,8 @@
 		AB968BBA2156EAF500A8926D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB968BB82156EAF500A8926D /* LaunchScreen.storyboard */; };
 		AB968BC52156EAF600A8926D /* MusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB968BC42156EAF600A8926D /* MusicTests.swift */; };
 		AB968BD12156EC1000A8926D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB968BD02156EC1000A8926D /* MapKit.framework */; };
+		AB968BD7215722BE00A8926D /* SquareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB968BD5215722BE00A8926D /* SquareViewController.swift */; };
+		AB968BD8215722BE00A8926D /* SquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB968BD6215722BE00A8926D /* SquareViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		AB968BC42156EAF600A8926D /* MusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTests.swift; sourceTree = "<group>"; };
 		AB968BC62156EAF600A8926D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB968BD02156EC1000A8926D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AB968BD5215722BE00A8926D /* SquareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareViewController.swift; sourceTree = "<group>"; };
+		AB968BD6215722BE00A8926D /* SquareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				AB968BB62156EAF500A8926D /* Assets.xcassets */,
 				AB968BB82156EAF500A8926D /* LaunchScreen.storyboard */,
 				AB968BBB2156EAF500A8926D /* Info.plist */,
+				AB968BD5215722BE00A8926D /* SquareViewController.swift */,
+				AB968BD6215722BE00A8926D /* SquareViewController.xib */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB968BBA2156EAF500A8926D /* LaunchScreen.storyboard in Resources */,
+				AB968BD8215722BE00A8926D /* SquareViewController.xib in Resources */,
 				AB968BB72156EAF500A8926D /* Assets.xcassets in Resources */,
 				AB968BB52156EAF500A8926D /* Main.storyboard in Resources */,
 			);
@@ -216,6 +223,7 @@
 			files = (
 				AB968BB22156EAF400A8926D /* ViewController.swift in Sources */,
 				AB968BB02156EAF400A8926D /* AppDelegate.swift in Sources */,
+				AB968BD7215722BE00A8926D /* SquareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
