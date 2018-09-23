@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Colors-->
+        <!--Payment-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ColorSwitchViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,6 +61,15 @@
                                     <action selector="triggerTouchID:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fQQ-aB-sdj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROt-kN-PJh">
+                                <rect key="frame" x="94" y="239" width="187.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xpT-iY-AG5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -69,17 +78,65 @@
                             <constraint firstItem="FTB-PG-JHE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="G5Q-fK-Wxp"/>
                             <constraint firstItem="FTB-PG-JHE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="IZN-WY-AbF"/>
                             <constraint firstItem="57D-ZF-Mc0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="PAa-CX-44e"/>
+                            <constraint firstItem="ROt-kN-PJh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="175" id="fnN-2k-A38"/>
+                            <constraint firstItem="ROt-kN-PJh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i2p-3K-kBU"/>
+                            <constraint firstItem="ROt-kN-PJh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="l93-zT-owB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Colors" id="PKz-4Y-qQI"/>
+                    <navigationItem key="navigationItem" title="Payment" id="PKz-4Y-qQI"/>
                     <connections>
                         <outlet property="connectionsLabel" destination="vwt-mK-OVB" id="qhp-oq-0tF"/>
+                        <outlet property="namelabel" destination="ROt-kN-PJh" id="bhh-QY-RyB"/>
                         <outlet property="payButton" destination="FTB-PG-JHE" id="oIl-F7-h6N"/>
+                        <segue destination="fkV-aK-T0D" kind="show" identifier="showRating" id="ihM-bW-h5K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1552.8" y="275.71214392803603"/>
+        </scene>
+        <!--Rate View Controller-->
+        <scene sceneID="plT-hp-vQl">
+            <objects>
+                <viewController id="fkV-aK-T0D" customClass="RateViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n3e-2B-Wi3"/>
+                        <viewControllerLayoutGuide type="bottom" id="14w-mS-ASj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lbJ-vZ-6wP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jgu-MN-fUL" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="37.5" y="85" width="300" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Var-I9-N9F"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jgu-MN-fUL" firstAttribute="top" secondItem="n3e-2B-Wi3" secondAttribute="bottom" constant="21" id="2Jo-Pl-h7x"/>
+                            <constraint firstItem="Jgu-MN-fUL" firstAttribute="centerX" secondItem="lbJ-vZ-6wP" secondAttribute="centerX" id="4m1-T5-CbC"/>
+                            <constraint firstItem="Jgu-MN-fUL" firstAttribute="width" secondItem="lbJ-vZ-6wP" secondAttribute="width" multiplier="0.8" id="QMt-El-jJf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ratingView" destination="Jgu-MN-fUL" id="9mn-mX-J2X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fIw-9b-fmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2434.4000000000001" y="265.81709145427288"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="F0W-m9-v3Y">
@@ -223,16 +280,10 @@
                             <constraint firstItem="SR8-Lh-UiM" firstAttribute="leading" secondItem="pZv-Rj-a8T" secondAttribute="leading" id="rUH-y7-TTH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3HL-XD-XVQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4bJ-la-9xE">
-                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="qzE-wb-7eb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="3HL-XD-XVQ"/>
                     <connections>
                         <outlet property="tableview" destination="SR8-Lh-UiM" id="7mb-aJ-kZK"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toPayment" id="tos-iz-ZSr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JO-9P-ppU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,7 +372,7 @@
         <scene sceneID="Z4U-Q6-qLQ">
             <objects>
                 <navigationController title="Users" automaticallyAdjustsScrollViewInsets="NO" id="gy1-qY-gz9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Users" selectedImage="user" id="lDh-29-Uro" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="Users" image="user" id="lDh-29-Uro" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <connections>
                             <outlet property="animation" destination="qc5-df-G3b" id="NEy-vY-os5"/>
                         </connections>
@@ -345,7 +396,7 @@
         <scene sceneID="2Qf-di-R5j">
             <objects>
                 <navigationController title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="Ux7-tY-a3R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="setting" id="n7R-j4-KQA" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="setting" id="n7R-j4-KQA" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <connections>
                             <outlet property="animation" destination="pc4-XA-hMX" id="B2Q-kO-ABy"/>
                         </connections>
@@ -403,7 +454,7 @@
         <scene sceneID="ikk-Yd-q1g">
             <objects>
                 <navigationController title="Restaurants" automaticallyAdjustsScrollViewInsets="NO" id="ST8-Aq-1OK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Restaurant" selectedImage="pin" id="dXj-jG-Ibh" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="Restaurant" image="pin" id="dXj-jG-Ibh" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <connections>
                             <outlet property="animation" destination="cyp-tJ-nK9" id="kTc-Zh-W7M"/>
                         </connections>
@@ -427,9 +478,9 @@
         <scene sceneID="YBE-Oz-1Ba">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fwj-rL-VDL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" selectedImage="drop" id="4r8-iQ-7bR" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                    <tabBarItem key="tabBarItem" title="History" image="drop" id="4r8-iQ-7bR" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <connections>
-                            <outlet property="animation" destination="Egq-7H-WAg" id="vm2-Zo-Dyy"/>
+                            <outlet property="animation" destination="Egq-7H-WAg" id="EEb-kL-k7K"/>
                         </connections>
                     </tabBarItem>
                     <toolbarItems/>

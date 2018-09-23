@@ -16,6 +16,9 @@ class HistoryViewController: UIViewController {
             tableview.reloadData()
         }
     }
+    
+    var selected: Restaurant?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,11 +36,23 @@ class HistoryViewController: UIViewController {
             purchases = rests
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dvc = segue.destination as? ColorSwitchViewController {
+            dvc.restuarant = selected
+        }
+    }
 
 }
 
 extension HistoryViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        selected = purchases[indexPath.row]
+        
+        performSegue(withIdentifier: "toPayment", sender: self)
+    }
 }
 
 extension HistoryViewController: UITableViewDataSource {

@@ -28,6 +28,8 @@
 		CACB4E9D2156CF2A007BCA42 /* RestaurantWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9C2156CF2A007BCA42 /* RestaurantWorker.swift */; };
 		CACB4EA02156DE8B007BCA42 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9F2156DE8B007BCA42 /* HistoryViewController.swift */; };
 		CACB4EA22156E6E1007BCA42 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACB4EA12156E6E1007BCA42 /* LocalAuthentication.framework */; };
+		CACB4EA4215705FB007BCA42 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4EA3215705FB007BCA42 /* RateViewController.swift */; };
+		CACB4EA6215709C5007BCA42 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4EA5215709C5007BCA42 /* Review.swift */; };
 		CACC4454215600B200FFE413 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4453215600B200FFE413 /* Locale.swift */; };
 		CACC4456215600CC00FFE413 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4455215600CC00FFE413 /* DateFormatter.swift */; };
 		CACC4458215600E300FFE413 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4457215600E300FFE413 /* String.swift */; };
@@ -67,6 +69,8 @@
 		CACB4E9C2156CF2A007BCA42 /* RestaurantWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantWorker.swift; sourceTree = "<group>"; };
 		CACB4E9F2156DE8B007BCA42 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		CACB4EA12156E6E1007BCA42 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		CACB4EA3215705FB007BCA42 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		CACB4EA5215709C5007BCA42 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		CACC4453215600B200FFE413 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		CACC4455215600CC00FFE413 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		CACC4457215600E300FFE413 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				CACB4E9F2156DE8B007BCA42 /* HistoryViewController.swift */,
+				CACB4EA3215705FB007BCA42 /* RateViewController.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				CAF336EE2155E47E002EF562 /* MaskedRelatedCreditCardAccount.swift */,
 				CACB4E9121569D0D007BCA42 /* Transfer.swift */,
 				CACB4E972156CAED007BCA42 /* Restaurant.swift */,
+				CACB4EA5215709C5007BCA42 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,7 +296,7 @@
 				TargetAttributes = {
 					BF6F13F31E4E58C90018D56E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = M4846KV222;
+						DevelopmentTeam = 8JLCNGAU2F;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
@@ -357,6 +363,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -372,6 +379,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -413,7 +421,9 @@
 				CACB4E7E21567426007BCA42 /* Authentication.swift in Sources */,
 				CACB4EA02156DE8B007BCA42 /* HistoryViewController.swift in Sources */,
 				CAF336EB2155E1A6002EF562 /* Address.swift in Sources */,
+				CACB4EA4215705FB007BCA42 /* RateViewController.swift in Sources */,
 				CAF336ED2155E3B1002EF562 /* MaskedRelatedBankAccount.swift in Sources */,
+				CACB4EA6215709C5007BCA42 /* Review.swift in Sources */,
 				BF6F13FA1E4E58C90018D56E /* ColorSwitchViewController.swift in Sources */,
 				BF6F13F81E4E58C90018D56E /* AppDelegate.swift in Sources */,
 				CACB4E9221569D0D007BCA42 /* Transfer.swift in Sources */,
@@ -553,7 +563,7 @@
 			baseConfigurationReference = 7BE2B0B84566FCC62D34C652 /* Pods-ConnectedColors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M4846KV222;
+				DEVELOPMENT_TEAM = 8JLCNGAU2F;
 				INFOPLIST_FILE = ConnectedColors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.ConnectedColors;
@@ -567,7 +577,7 @@
 			baseConfigurationReference = C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M4846KV222;
+				DEVELOPMENT_TEAM = 8JLCNGAU2F;
 				INFOPLIST_FILE = ConnectedColors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.ConnectedColors;

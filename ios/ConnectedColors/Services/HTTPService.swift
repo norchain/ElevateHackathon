@@ -10,8 +10,6 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
-
-
 protocol HTTPServiceProtocol {
     func getAllUsers(complete: @escaping UsersCompleteHandler)
     func getCustomerBy(id: String, complete: @escaping UserCompleteHandler)
@@ -20,6 +18,8 @@ protocol HTTPServiceProtocol {
 
 protocol RestaurantProtocol {
     func getAllRestaurants(complete: @escaping RestaurantsHandler)
+    func getReview(id: String, complete: @escaping ReviewHandler)
+    func rate(client_id: String, td_account: String, stars: String, comment: String, complete: @escaping rateHandler)
 }
 
 enum HTTPResult<U>
@@ -42,7 +42,10 @@ typealias UsersCompleteHandler = (HTTPResult<[User]>) -> Void
 typealias UserCompleteHandler = (HTTPResult<User>) -> Void
 typealias TransferHandler = (HTTPResult<Transfer>) -> Void
 
+
+typealias ReviewHandler = (HTTPResult<Review>) -> Void
 typealias RestaurantsHandler = (HTTPResult<[Restaurant]>) -> Void
+typealias rateHandler = (HTTPResult<Bool>) -> Void
 
 class RestaurantService: RestaurantProtocol {
     //let urlHost = "http://ec2-13-59-100-20.us-east-2.compute.amazonaws.com/restaurants"
@@ -79,6 +82,74 @@ class RestaurantService: RestaurantProtocol {
                         }
                     }
                     complete(.Success(result: rests))
+                } else {
+                    complete(.Failure(error: HTTPError.parseJson))
+                }
+        }
+    }
+    
+    func getReview(id: String, complete: @escaping ReviewHandler) {
+        guard let url = URL(string: "http://192.168.1.3:3000/reviews/" + id) else {
+            complete(.Failure(error: HTTPError.invalidURL))
+            return
+        }
+        
+        let utilityQueue = DispatchQueue.global(qos: .utility)
+        
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+            .validate()
+            .responseJSON(queue: utilityQueue) { (response) in
+                guard response.result.isSuccess else {
+                    print("Error fetching restaurants")
+                    complete(.Failure(error: HTTPError.getRestaurants))
+                    return
+                }
+                
+                guard let data = response.data,
+                    let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                        complete(.Failure(error: HTTPError.parseJson))
+                        return
+                }
+                
+                if let json = json, let review = Review(JSON: json)  {
+                    complete(.Success(result: review))
+                } else {
+                    complete(.Failure(error: HTTPError.parseJson))
+                }
+        }
+    }
+    
+    func rate(client_id: String, td_account: String, stars: String, comment: String, complete: @escaping rateHandler) {
+        guard let url = URL(string: "http://192.168.1.3:3000/reviews/") else {
+            complete(.Failure(error: HTTPError.invalidURL))
+            return
+        }
+        
+        let utilityQueue = DispatchQueue.global(qos: .utility)
+        
+        let parameters: Parameters = [
+            "client_id": client_id,
+            "td_account": td_account,
+            "stars": stars,
+            "comment": comment
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+            .validate()
+            .responseJSON(queue: utilityQueue) { (response) in
+                guard response.result.isSuccess else {
+                    complete(.Failure(error: HTTPError.getRestaurants))
+                    return
+                }
+                
+                guard let data = response.data,
+                    let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                        complete(.Failure(error: HTTPError.parseJson))
+                        return
+                }
+                
+                if let json = json, let review = Review(JSON: json)  {
+                    complete(.Success(result: true))
                 } else {
                     complete(.Failure(error: HTTPError.parseJson))
                 }
