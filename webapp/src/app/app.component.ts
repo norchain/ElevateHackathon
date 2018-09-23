@@ -14,7 +14,7 @@ declare interface TableData {
 export class AppComponent implements OnInit {
   private headersAdditional: HttpHeaders;
   public tableData1: TableData;
-  private serverURL = 'http://localhost:3000';
+  private serverURL = 'http://35.230.188.187';
 
   constructor(private http: HttpClient) {
   }
