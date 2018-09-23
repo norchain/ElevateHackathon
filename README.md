@@ -8,11 +8,13 @@ By utilizing blockchain tech, it's possible to build open databases with communi
 
 In the submission, we have:
 
-1. A decentrialized Escrow and Review smart contract(SC) built upon [NEO](http://neo.org/) blockchain infrastructure. 
+1. [A decentrialized Escrow and Review smart contract(SC)](https://github.com/norchain/ElevateHackathon/tree/master/SmartContract) built upon [NEO](http://neo.org/) blockchain infrastructure. 
 2. [An ordering iOS App](https://github.com/norchain/ElevateHackathon/tree/master/ios) built upon mentioned SC, utilizing **TD's payment API** for payment, while joins the blockchain data and **user profile proivded by TD's API** to do the recommandation. 
 3. [An recommandation web app](https://github.com/norchain/ElevateHackathon/tree/master/webapp) built upon mentioned SC, using the blockchain data to do the recommandation. 
+4. [A simulation backend app](https://github.com/norchain/ElevateHackathon/tree/master/apimock) to mock blockchain for demostration.
+5. 
 
-
+We also have an Video to demostrate the nice experien
 
 
 
