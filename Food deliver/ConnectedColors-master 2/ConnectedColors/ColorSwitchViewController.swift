@@ -44,23 +44,11 @@ extension ColorSwitchViewController : ColorServiceDelegate {
     }
     
     func sendNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "Customer checked"
-        content.subtitle = "Comfirmed"
-        content.body = ""
-        content.badge = 1
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
-                                                        repeats: false)
-        
-        let requestIdentifier = "demoNotification"
-        let request = UNNotificationRequest(identifier: requestIdentifier,
-                                            content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request,
-                                               withCompletionHandler: { (error) in
-                                                // Handle error
-        })
+        let alert = UIAlertController(title: "Customer confirmed", message: "Order complete", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true)
     }
 
 }

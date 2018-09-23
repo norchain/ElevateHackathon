@@ -279,7 +279,7 @@
 				DEVELOPMENT_TEAM = 8JLCNGAU2F;
 				INFOPLIST_FILE = ConnectedColors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.ConnectedColors;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.deliver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -292,7 +292,7 @@
 				DEVELOPMENT_TEAM = 8JLCNGAU2F;
 				INFOPLIST_FILE = ConnectedColors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.ConnectedColors;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.deliver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
