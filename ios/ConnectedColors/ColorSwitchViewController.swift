@@ -10,6 +10,16 @@ class ColorSwitchViewController: UIViewController, PeerGetMessageDelegate {
     @IBOutlet weak var namelabel: UILabel!
     @IBOutlet weak var payButton: UIButton!
     
+
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true) {
+            if let app = UIApplication.shared.delegate as? AppDelegate {
+                app.delegate = nil
+            }
+        }
+    }
+    
+    
     var connections: [String]?
     
     var rate: String = ""
@@ -45,6 +55,12 @@ class ColorSwitchViewController: UIViewController, PeerGetMessageDelegate {
             }
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewLoad = false
+    }
 
     @IBAction func redTapped() {
         self.change(color: .red)
@@ -77,17 +93,19 @@ class ColorSwitchViewController: UIViewController, PeerGetMessageDelegate {
                     }
                     
                     
-                    let client = self.restuarant?._id ?? ""
+                    
+                    let client = UserDefaults.standard.string(forKey: "UserID") ?? ""
                     let td = self.restuarant?.TD_account ?? ""
                     let r = "\(self.rate)"
                     let comment = ""
                     self.worker.rate(client_id: client, td_account: td, stars: r, comment: comment, complete: { (review) in
                         DispatchQueue.main.async {
                             hud.dismiss()
+                            UserDefaults.standard.removeObject(forKey: "Purchase")
                             switch review {
                             case .Success(let re):
                                 self.dismiss(animated: true, completion: {
-                                    UserDefaults.standard.removeObject(forKey: "Purchase")
+                
                                 })
                             case .Failure(let error):
                                 let alert = UIAlertController(title: "Rate failed", message: "", preferredStyle: .alert)
