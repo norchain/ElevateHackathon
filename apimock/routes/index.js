@@ -6,14 +6,16 @@ mongoose.connect('mongodb://localhost:27017/Elevate');
 const restaurantModel = mongoose.model('restaurants', { name: String,
     description: String,
     price: String,
-    TD_account: String,
+	TD_account: String,
+	rate: String,
+	total: Number
 });
 
 const reviewModel = mongoose.model('review', {
     client_id: String,
     td_account: String,
     stars: String,
-    comment: String,
+	comment: String,
 });
 
 /* GET home page. */
@@ -47,13 +49,20 @@ router.post('/review', function(req, res, next) {
         client_id: req.body.client_id,
         td_account: req.body.td_account,
         stars: req.body.stars,
-        comment: req.body.comment
+		comment: req.body.comment
     })
-    console.log(req.body)
+	console.log(req.body);
+	reviewModel.updateOne(
+		{td_account: req.body.td_account},
+		{$inc: { total: 1 } },
+		function(err, document){
+		console.log(err)
+		console.log(document)
+    });
     reviewModel.updateOne({ client_id: req.body.client_id},
         {
             stars: req.body.stars,
-            comment: req.body.comment
+			comment: req.body.comment
         }
         , function(err, result) {
         console.log(result)
