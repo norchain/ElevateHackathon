@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yrn-dA-4Rg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zGj-hR-EBR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="57D-ZF-Mc0">
-                                <rect key="frame" x="26" y="50" width="105.5" height="80.5"/>
+                                <rect key="frame" x="26" y="94" width="105.5" height="80.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connections: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwt-mK-OVB">
                                         <rect key="frame" x="0.0" y="0.0" width="105.5" height="20.5"/>
@@ -51,21 +51,35 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTB-PG-JHE">
+                                <rect key="frame" x="94" y="469" width="187.5" height="62.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FTB-PG-JHE" secondAttribute="height" multiplier="1.5:0.5" id="ZTL-F7-qBN"/>
+                                </constraints>
+                                <state key="normal" title="Make the payment now"/>
+                                <connections>
+                                    <action selector="triggerTouchID:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fQQ-aB-sdj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="57D-ZF-Mc0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="1J5-Qg-TlP"/>
+                            <constraint firstItem="FTB-PG-JHE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ES8-0U-8au"/>
+                            <constraint firstItem="FTB-PG-JHE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="G5Q-fK-Wxp"/>
+                            <constraint firstItem="FTB-PG-JHE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="IZN-WY-AbF"/>
                             <constraint firstItem="57D-ZF-Mc0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="PAa-CX-44e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Colors" id="PKz-4Y-qQI"/>
                     <connections>
                         <outlet property="connectionsLabel" destination="vwt-mK-OVB" id="qhp-oq-0tF"/>
+                        <outlet property="payButton" destination="FTB-PG-JHE" id="oIl-F7-h6N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3893.5999999999999" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1552.8" y="275.71214392803603"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="F0W-m9-v3Y">
@@ -209,7 +223,14 @@
                             <constraint firstItem="SR8-Lh-UiM" firstAttribute="leading" secondItem="pZv-Rj-a8T" secondAttribute="leading" id="rUH-y7-TTH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3HL-XD-XVQ"/>
+                    <navigationItem key="navigationItem" id="3HL-XD-XVQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4bJ-la-9xE">
+                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="qzE-wb-7eb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="SR8-Lh-UiM" id="7mb-aJ-kZK"/>
                     </connections>
@@ -218,10 +239,10 @@
             </objects>
             <point key="canvasLocation" x="621.60000000000002" y="-242.42878560719643"/>
         </scene>
-        <!--My Tab Bar View Controller-->
+        <!--Animated Tab Bar Controller-->
         <scene sceneID="X9r-D7-It5">
             <objects>
-                <tabBarController storyboardIdentifier="MyTabBarViewController" id="zGj-hR-EBR" customClass="MyTabBarViewController" customModule="ConnectedColors" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RAMAnimatedTabBarController" id="zGj-hR-EBR" customClass="RAMAnimatedTabBarController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Hm-dO-uiV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -300,7 +321,11 @@
         <scene sceneID="Z4U-Q6-qLQ">
             <objects>
                 <navigationController title="Users" automaticallyAdjustsScrollViewInsets="NO" id="gy1-qY-gz9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Users" id="lDh-29-Uro"/>
+                    <tabBarItem key="tabBarItem" title="Users" selectedImage="user" id="lDh-29-Uro" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="qc5-df-G3b" id="NEy-vY-os5"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="alk-iC-Vco">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -312,6 +337,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ht8-nl-xtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="qc5-df-G3b" customClass="RAMLeftRotationAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="-700" y="-788"/>
         </scene>
@@ -319,7 +345,11 @@
         <scene sceneID="2Qf-di-R5j">
             <objects>
                 <navigationController title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="Ux7-tY-a3R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="n7R-j4-KQA"/>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="setting" id="n7R-j4-KQA" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="pc4-XA-hMX" id="B2Q-kO-ABy"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lLi-vx-Qeb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -331,6 +361,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RjJ-fT-cIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="pc4-XA-hMX" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="-317.60000000000002" y="423.23838080959524"/>
         </scene>
@@ -372,7 +403,11 @@
         <scene sceneID="ikk-Yd-q1g">
             <objects>
                 <navigationController title="Restaurants" automaticallyAdjustsScrollViewInsets="NO" id="ST8-Aq-1OK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Restaurant" id="dXj-jG-Ibh"/>
+                    <tabBarItem key="tabBarItem" title="Restaurant" selectedImage="pin" id="dXj-jG-Ibh" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="cyp-tJ-nK9" id="kTc-Zh-W7M"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vqp-8c-4Sl">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -384,6 +419,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grU-3D-Aan" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="cyp-tJ-nK9" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="-362.39999999999998" y="1207.6461769115442"/>
         </scene>
@@ -391,7 +427,11 @@
         <scene sceneID="YBE-Oz-1Ba">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fwj-rL-VDL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" id="4r8-iQ-7bR"/>
+                    <tabBarItem key="tabBarItem" title="History" selectedImage="drop" id="4r8-iQ-7bR" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="Egq-7H-WAg" id="vm2-Zo-Dyy"/>
+                        </connections>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eSW-fA-DDF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -403,11 +443,16 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnD-ab-mjC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Egq-7H-WAg" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="-317.60000000000002" y="-242.42878560719643"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="320" height="480"/>
+        <image name="drop" width="24" height="24"/>
+        <image name="pin" width="30" height="30"/>
+        <image name="setting" width="30" height="30"/>
+        <image name="user" width="30" height="30"/>
     </resources>
 </document>

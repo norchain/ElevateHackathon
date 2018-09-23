@@ -12,4 +12,5 @@ target 'ConnectedColors' do
   pod 'JGProgressHUD'
   pod 'ViewAnimator'
   pod 'Eureka', '~> 4.2.0'
+  pod 'RAMAnimatedTabBarController'
 end

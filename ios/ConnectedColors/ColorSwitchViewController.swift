@@ -1,9 +1,20 @@
 import UIKit
+import LocalAuthentication
 
 class ColorSwitchViewController: UIViewController {
 
     @IBOutlet weak var connectionsLabel: UILabel!
+    
+    @IBOutlet weak var payButton: UIButton!
+    var hasConnection = false {
+        didSet {
+            payButton.isEnabled = hasConnection
+        }
+    }
 
+    @IBAction func triggerTouchID(_ sender: UIButton) {
+        authenticateUserTouchID()
+    }
     let colorService = ColorService()
 
     override func viewDidLoad() {
@@ -27,6 +38,20 @@ class ColorSwitchViewController: UIViewController {
         }
     }
     
+    func authenticateUserTouchID() {
+        let context : LAContext = LAContext()
+        let myLocalizedReasonString = "Authentication is needed to make the payment."
+        var authError: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: myLocalizedReasonString) { success, evaluateError in
+                if success {
+                    
+                } else {
+                    
+                }
+            }
+        }
+    }
 }
 
 extension ColorSwitchViewController : ColorServiceDelegate {
@@ -34,6 +59,8 @@ extension ColorSwitchViewController : ColorServiceDelegate {
     func connectedDevicesChanged(manager: ColorService, connectedDevices: [String]) {
         OperationQueue.main.addOperation {
             self.connectionsLabel.text = "Connections: \(connectedDevices)"
+            
+            self.hasConnection = connectedDevices.count > 0
         }
     }
 

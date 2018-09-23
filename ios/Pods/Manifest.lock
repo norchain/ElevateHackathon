@@ -16,6 +16,7 @@ PODS:
     - Validator (= 3.0.2)
   - JGProgressHUD (2.0.3)
   - ObjectMapper (3.3.0)
+  - RAMAnimatedTabBarController (3.5.0)
   - SwiftyJSON (4.1.0)
   - Validator (3.0.2)
   - ViewAnimator (2.1.2)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - ILLoginKit
   - JGProgressHUD
   - ObjectMapper (~> 3.3)
+  - RAMAnimatedTabBarController
   - SwiftyJSON (~> 4.0)
   - ViewAnimator
 
@@ -39,6 +41,7 @@ SPEC REPOS:
     - ILLoginKit
     - JGProgressHUD
     - ObjectMapper
+    - RAMAnimatedTabBarController
     - SwiftyJSON
     - Validator
     - ViewAnimator
@@ -52,10 +55,11 @@ SPEC CHECKSUMS:
   ILLoginKit: 6f717fa907114986b6914d1502bf8bd40b3720e5
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  RAMAnimatedTabBarController: 7e259e89b669c7bc833a6441c7d8fbfd6580f473
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Validator: bf211c1d71b3f910d230c09c70e62429d0fef63a
   ViewAnimator: 20df9a24a076c6ee78b77a4dbf1943808c94954e
 
-PODFILE CHECKSUM: aa2b38a3ccb050b7cf4307533736edb424c1a980
+PODFILE CHECKSUM: 5578276d96344f9aa6e686a498d41f3b99a794ea
 
 COCOAPODS: 1.5.3

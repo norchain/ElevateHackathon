@@ -16,7 +16,6 @@
 		BF6F14021E4E58C90018D56E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6F14001E4E58C90018D56E /* LaunchScreen.storyboard */; };
 		CACB4E7C21567112007BCA42 /* MyLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E7B21567112007BCA42 /* MyLoginViewController.swift */; };
 		CACB4E7E21567426007BCA42 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E7D21567426007BCA42 /* Authentication.swift */; };
-		CACB4E8021567924007BCA42 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E7F21567924007BCA42 /* MyTabBarViewController.swift */; };
 		CACB4E8521567E87007BCA42 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E8321567E87007BCA42 /* UserTableViewCell.swift */; };
 		CACB4E8621567E87007BCA42 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACB4E8421567E87007BCA42 /* UserTableViewCell.xib */; };
 		CACB4E8921568226007BCA42 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E8821568226007BCA42 /* BaseTableViewCell.swift */; };
@@ -28,6 +27,7 @@
 		CACB4E9B2156CEDB007BCA42 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9A2156CEDB007BCA42 /* RestaurantViewController.swift */; };
 		CACB4E9D2156CF2A007BCA42 /* RestaurantWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9C2156CF2A007BCA42 /* RestaurantWorker.swift */; };
 		CACB4EA02156DE8B007BCA42 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB4E9F2156DE8B007BCA42 /* HistoryViewController.swift */; };
+		CACB4EA22156E6E1007BCA42 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CACB4EA12156E6E1007BCA42 /* LocalAuthentication.framework */; };
 		CACC4454215600B200FFE413 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4453215600B200FFE413 /* Locale.swift */; };
 		CACC4456215600CC00FFE413 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4455215600CC00FFE413 /* DateFormatter.swift */; };
 		CACC4458215600E300FFE413 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACC4457215600E300FFE413 /* String.swift */; };
@@ -55,7 +55,6 @@
 		C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectedColors.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectedColors/Pods-ConnectedColors.release.xcconfig"; sourceTree = "<group>"; };
 		CACB4E7B21567112007BCA42 /* MyLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyLoginViewController.swift; path = ConnectedColors/Scenes/Login/MyLoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		CACB4E7D21567426007BCA42 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		CACB4E7F21567924007BCA42 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		CACB4E8321567E87007BCA42 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		CACB4E8421567E87007BCA42 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		CACB4E8821568226007BCA42 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		CACB4E9A2156CEDB007BCA42 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		CACB4E9C2156CF2A007BCA42 /* RestaurantWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantWorker.swift; sourceTree = "<group>"; };
 		CACB4E9F2156DE8B007BCA42 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		CACB4EA12156E6E1007BCA42 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		CACC4453215600B200FFE413 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		CACC4455215600CC00FFE413 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		CACC4457215600E300FFE413 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -85,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CACB4EA22156E6E1007BCA42 /* LocalAuthentication.framework in Frameworks */,
 				198C29D60BAD890FCDEBB497 /* Pods_ConnectedColors.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +96,7 @@
 		51C5C26805379ED7BBEC27A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CACB4EA12156E6E1007BCA42 /* LocalAuthentication.framework */,
 				C6183AF7574E064B90BB6B20 /* Pods_ConnectedColors.framework */,
 			);
 			name = Frameworks;
@@ -143,7 +145,6 @@
 				BF6F13FE1E4E58C90018D56E /* Assets.xcassets */,
 				BF6F14001E4E58C90018D56E /* LaunchScreen.storyboard */,
 				BF6F14031E4E58C90018D56E /* Info.plist */,
-				CACB4E7F21567924007BCA42 /* MyTabBarViewController.swift */,
 			);
 			path = ConnectedColors;
 			sourceTree = "<group>";
@@ -289,7 +290,7 @@
 				TargetAttributes = {
 					BF6F13F31E4E58C90018D56E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8JLCNGAU2F;
+						DevelopmentTeam = M4846KV222;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
@@ -362,6 +363,7 @@
 				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework",
@@ -376,6 +378,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework",
@@ -406,7 +409,6 @@
 				CACB4E9D2156CF2A007BCA42 /* RestaurantWorker.swift in Sources */,
 				CAF336DE2155DB84002EF562 /* UserWorker.swift in Sources */,
 				CAF336E62155DEE1002EF562 /* HTTPService.swift in Sources */,
-				CACB4E8021567924007BCA42 /* MyTabBarViewController.swift in Sources */,
 				CACB4E8B21568237007BCA42 /* UITableView.swift in Sources */,
 				CACB4E7E21567426007BCA42 /* Authentication.swift in Sources */,
 				CACB4EA02156DE8B007BCA42 /* HistoryViewController.swift in Sources */,
@@ -551,7 +553,7 @@
 			baseConfigurationReference = 7BE2B0B84566FCC62D34C652 /* Pods-ConnectedColors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8JLCNGAU2F;
+				DEVELOPMENT_TEAM = M4846KV222;
 				INFOPLIST_FILE = ConnectedColors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.ConnectedColors;
@@ -565,7 +567,7 @@
 			baseConfigurationReference = C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8JLCNGAU2F;
+				DEVELOPMENT_TEAM = M4846KV222;
 				INFOPLIST_FILE = ConnectedColors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.ConnectedColors;
