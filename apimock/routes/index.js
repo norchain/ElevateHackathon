@@ -38,7 +38,7 @@ router.get('/restaurants', function(req, res, next) {
         restaurants.forEach(function(restaurant) {
             restaurantsMap[restaurant._id] = restaurant;
         });
-		
+
         res.send(restaurantsMap);
     });
 })
@@ -52,27 +52,75 @@ router.post('/review', function(req, res, next) {
 		comment: req.body.comment
     })
 	console.log(req.body);
-    restaurantModel.findOne({TD_account: req.body.td_account}, function (err, doc) {
-        let total = 1;
-        let rate = Number.parseFloat(req.body.stars);
-        console.log(err);
-        console.log(doc);
-        console.log(doc.rate);
-        if(doc.total !== 0){
-            rate = (rate + (doc.total * doc.rate))/(total+doc.total);
-            total = total+doc.total;
-        }
-        console.log(err);
-        restaurantModel.updateOne(
-            {TD_account: req.body.td_account},
-            {rate: rate, total: total},
-            function(err, document){
-                console.log("error " + err);
-                console.log("doc " + document.rate + " num " + document.total);
-            });
-    });
+    reviewModel.findOne({ client_id: req.body.client_id, td_account: req.body.td_account},
+        function(err, result) {
+            if (err) {
+                res.send({ status : "error finding  review"})
+                console.error(err)
+            }
+            if(result == null) {
+                newReview.save(function (err, saveResult) {
+                    if (err) {
+                        res.send({ status : "save failed"})
+                        return console.error(err)
+                    }
+                    restaurantModel.findOne({TD_account: req.body.td_account}, function (err, doc) {
+                        let total = 1;
+                        let rate = Number.parseFloat(req.body.stars);
+                        if(doc.total !== 0){
+                            rate = (rate + (doc.total * doc.rate))/(total+doc.total);
+                            total = total+doc.total;
+                        }
+                        console.log(err);
+                        restaurantModel.updateOne(
+                            {TD_account: req.body.td_account},
+                            {rate: rate, total: total},
+                            function(err, document){
+                                console.log("error " + err);
+                                console.log("doc " + document.rate + " num " + document.total);
+                            });
+                    });
+                    res.send({status: "save succeeded"})
+                    return
+                });
+            }else{
+                console.log(result)
+                let oldRate = result.stars
 
-    reviewModel.updateOne({ client_id: req.body.client_id, td_account: req.body.td_account},
+                reviewModel.updateOne({ client_id: req.body.client_id, td_account: req.body.td_account},
+                    {
+                        stars: req.body.stars,
+                        comment: req.body.comment
+                    },function(err, result) {
+                        console.log(result)
+                        if (err) {
+                            //res.send({ status : "update failed"})
+                            console.error(err)
+                        }
+                        restaurantModel.findOne({TD_account: req.body.td_account}, function (err, doc) {
+                            if(doc == null) {
+                                res.send('error finding restaurant');
+                                return
+                            }
+                            let rate = Number.parseFloat(req.body.stars);
+                            if(doc.total !== 0){
+                                rate = (rate - oldRate + (doc.total * doc.rate))/(doc.total);
+                            }
+                            console.log(err);
+                            restaurantModel.updateOne(
+                                {TD_account: req.body.td_account},
+                                {rate: rate},
+                                function(err, document){
+                                    console.log("error " + err);
+                                    console.log("doc " + document.rate + " num " + document.total);
+                                });
+                        });
+                        res.send({status: "update succeeded"})
+                        return
+                    })
+            }
+        })
+ /*   reviewModel.updateOne({ client_id: req.body.client_id, td_account: req.body.td_account},
         {
             stars: req.body.stars,
 			comment: req.body.comment
@@ -95,7 +143,7 @@ router.post('/review', function(req, res, next) {
             res.send({status: "update succeeded"})
             return
         }
-    });
+    });*/
     /*newReview.save(function (err, fluffy) {
         if (err) {
             res.send({ status : "save failed"})
