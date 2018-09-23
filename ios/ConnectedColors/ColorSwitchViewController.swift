@@ -112,6 +112,10 @@ class ColorSwitchViewController: UIViewController, PeerGetMessageDelegate {
     
     // MARK:
     
+    var loaded: Bool {
+        return viewLoad
+    }
+    
     func didGetMessageFromPeer(message: String) {
         
     }

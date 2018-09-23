@@ -1,6 +1,7 @@
 import UIKit
 
 protocol PeerGetMessageDelegate: class {
+    var loaded: Bool { get }
     func didGetMessageFromPeer(message: String)
     func didGetUpdatePeer(connections: [String])
 }
@@ -50,8 +51,11 @@ extension AppDelegate : ColorServiceDelegate {
         OperationQueue.main.addOperation {
             if connectedDevices.count > 0 {
                 if let delegate = self.delegate {
-                    delegate.didGetUpdatePeer(connections: connectedDevices)
-                    return
+                    if delegate.loaded {
+                        delegate.didGetUpdatePeer(connections: connectedDevices)
+                        return
+                    }
+                    
                 } else {
                     let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ColorSwitchViewController") as! ColorSwitchViewController
