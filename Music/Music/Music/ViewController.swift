@@ -19,12 +19,12 @@ class ViewController: UIViewController {
         let session = URLSession(configuration: config)
         
         
-        let strUrl = "https://api.7digital.com/1.2/artist/search?shopId=2020&oauth_consumer_key=7d4vr6cgb392&q=taylor"
+        let strUrl = "http://api.7digital.com/1.2/artist/search?shopId=2020&oauth_consumer_key=7d4vr6cgb392&q=taylor"
         
         let url = URL(string: strUrl)!
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue("Accept", forHTTPHeaderField: "application/json")
+//        request.addValue("Accept", forHTTPHeaderField: "application/json")
         
         let task = session.dataTask(with: request){ data, response, error in
             // ensure there is no error for this HTTP response
@@ -47,6 +47,7 @@ class ViewController: UIViewController {
             
             print("gotten json response dictionary is \n \(json)")
     
+            
         }
         
         
@@ -54,9 +55,14 @@ class ViewController: UIViewController {
         // execute the HTTP request
         task.resume()
         // Do any additional setup after loading the view.
-
+        fakePortait()
     }
-
+    
+    func fakePortait() -> Void {
+        for(int i = 0 ; i<5; i++){
+            
+        }
+    }
 
     
 }
