@@ -1,13 +1,21 @@
 import UIKit
 
+protocol PeerGetMessageDelegate: class {
+    func didGetMessageFromPeer(message: String)
+    func didGetUpdatePeer(connections: [String])
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let colorService = ColorService()
     
+    weak var delegate: PeerGetMessageDelegate?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        colorService.delegate = self
         return true
     }
 
@@ -36,3 +44,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate : ColorServiceDelegate {
+    
+    func connectedDevicesChanged(manager: ColorService, connectedDevices: [String]) {
+        OperationQueue.main.addOperation {
+            if connectedDevices.count > 0 {
+                if let delegate = self.delegate {
+                    delegate.didGetUpdatePeer(connections: connectedDevices)
+                    return
+                } else {
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ColorSwitchViewController") as! ColorSwitchViewController
+                    
+                    viewController.connections = connectedDevices
+                    
+                    self.delegate = viewController
+                    
+                    self.window?.rootViewController?.present(viewController, animated: true, completion: {
+                        self.delegate?.didGetUpdatePeer(connections: connectedDevices)
+                    })
+                }
+            }
+        }
+    }
+    
+    func colorChanged(manager: ColorService, colorString: String) {
+        OperationQueue.main.addOperation {
+            self.delegate?.didGetMessageFromPeer(message: colorString)
+        }
+    }
+    
+}

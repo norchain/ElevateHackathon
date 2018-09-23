@@ -1,38 +1,57 @@
 import UIKit
 import LocalAuthentication
+import Cosmos
+import JGProgressHUD
 
-class ColorSwitchViewController: UIViewController {
+class ColorSwitchViewController: UIViewController, PeerGetMessageDelegate {
 
     @IBOutlet weak var connectionsLabel: UILabel!
     
     @IBOutlet weak var namelabel: UILabel!
     @IBOutlet weak var payButton: UIButton!
-    var hasConnection = false {
-        didSet {
-            payButton.isEnabled = hasConnection
-        }
-    }
     
+    var connections: [String]?
+    
+    var rate: String = ""
+    
+    var viewLoad = false
+    
+    var worker = RestaurantWorker(service: RestaurantService())
+    
+    @IBOutlet weak var rateView: CosmosView!
     var restuarant: Restaurant?
 
     @IBAction func triggerTouchID(_ sender: UIButton) {
         authenticateUserTouchID()
     }
-    let colorService = ColorService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorService.delegate = self
+        viewLoad = true
+        
+        if let accountsData = UserDefaults.standard.data(forKey: "Purchase"),
+            let rests = try? JSONDecoder().decode([Restaurant].self, from: accountsData) {
+            restuarant = rests.first
+        }
+        
+        payButton.isEnabled = false
+        
+        rateView.settings.updateOnTouch = true
+        
+        rateView.didTouchCosmos =  { rate in
+            DispatchQueue.main.async {
+                self.payButton.isEnabled = true
+                self.rate = "\(rate)"
+            }
+        }
     }
 
     @IBAction func redTapped() {
         self.change(color: .red)
-        colorService.send(colorName: "red")
     }
 
     @IBAction func yellowTapped() {
         self.change(color: .yellow)
-        colorService.send(colorName: "yellow")
     }
 
     func change(color : UIColor) {
@@ -50,44 +69,56 @@ class ColorSwitchViewController: UIViewController {
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: myLocalizedReasonString) { success, evaluateError in
                 if success {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "showRating", sender: self)
-                    }
-                } else {
+                    let hud = JGProgressHUD(style: .dark)
                     
+                    DispatchQueue.main.async {
+                        hud.textLabel.text = "Loading"
+                        hud.show(in: self.view)
+                    }
+                    
+                    
+                    let client = self.restuarant?._id ?? ""
+                    let td = self.restuarant?.TD_account ?? ""
+                    let r = "\(self.rate)"
+                    let comment = ""
+                    self.worker.rate(client_id: client, td_account: td, stars: r, comment: comment, complete: { (review) in
+                        DispatchQueue.main.async {
+                            hud.dismiss()
+                            switch review {
+                            case .Success(let re):
+                                self.dismiss(animated: true, completion: {
+                                
+                                })
+                            case .Failure(let error):
+                                let alert = UIAlertController(title: "Rate failed", message: "", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                                            self.dismiss(animated: true, completion: nil)
+                                }))
+                                self.present(alert, animated: true)
+                            }
+                        }
+                        
+                    })
+                } else {
+                    let alert = UIAlertController(title: "Rate failed", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                        self.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alert, animated: true)
                 }
             }
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dvc = segue.destination as? RateViewController {
-            dvc.restaurant = restuarant
+    // MARK:
+    
+    func didGetMessageFromPeer(message: String) {
+        
+    }
+    
+    func didGetUpdatePeer(connections: [String]) {
+        if viewLoad {
+            connectionsLabel.text = connections.reduce("") { $0 + " " + $1 }
         }
     }
-}
-
-extension ColorSwitchViewController : ColorServiceDelegate {
-
-    func connectedDevicesChanged(manager: ColorService, connectedDevices: [String]) {
-        OperationQueue.main.addOperation {
-            self.connectionsLabel.text = "Connections: \(connectedDevices)"
-            
-            self.hasConnection = connectedDevices.count > 0
-        }
-    }
-
-    func colorChanged(manager: ColorService, colorString: String) {
-        OperationQueue.main.addOperation {
-            switch colorString {
-            case "red":
-                self.change(color: .red)
-            case "yellow":
-                self.change(color: .yellow)
-            default:
-                NSLog("%@", "Unknown color value received: \(colorString)")
-            }
-        }
-    }
-
 }

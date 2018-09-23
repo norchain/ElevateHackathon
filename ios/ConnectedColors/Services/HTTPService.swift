@@ -148,7 +148,7 @@ class RestaurantService: RestaurantProtocol {
                         return
                 }
                 
-                if let json = json, let review = Review(JSON: json)  {
+                if let json = json  {
                     complete(.Success(result: true))
                 } else {
                     complete(.Failure(error: HTTPError.parseJson))
