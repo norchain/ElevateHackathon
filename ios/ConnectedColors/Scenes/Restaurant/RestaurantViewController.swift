@@ -21,6 +21,22 @@ class RestaurantViewController: UIViewController {
             }
         }
     }
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        fetch()
+        
+        tableview.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +45,11 @@ class RestaurantViewController: UIViewController {
         tableview.dataSource = self
         
         tableview.registerCellTypes([UserTableViewCell.self])
-
+        tableview.addSubview(refreshControl)
+        fetch()
+    }
+    
+    func fetch() {
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
@@ -47,11 +67,11 @@ class RestaurantViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 hud.dismiss()
+                self.refreshControl.endRefreshing()
             }
             
         }
     }
-    
 
 }
 

@@ -49,7 +49,7 @@ typealias rateHandler = (HTTPResult<Bool>) -> Void
 
 class RestaurantService: RestaurantProtocol {
     //let urlHost = "http://ec2-13-59-100-20.us-east-2.compute.amazonaws.com/restaurants"
-    let urlHost = "http://192.168.1.3:3000/restaurants"
+    let urlHost = "http://35.230.188.187/restaurants"
     
     func getAllRestaurants(complete: @escaping RestaurantsHandler) {
         guard let url = URL(string: urlHost) else {
@@ -89,7 +89,7 @@ class RestaurantService: RestaurantProtocol {
     }
     
     func getReview(id: String, complete: @escaping ReviewHandler) {
-        guard let url = URL(string: "http://192.168.1.3:3000/reviews/" + id) else {
+        guard let url = URL(string: "http://35.230.188.187/reviews/" + id) else {
             complete(.Failure(error: HTTPError.invalidURL))
             return
         }
@@ -120,7 +120,7 @@ class RestaurantService: RestaurantProtocol {
     }
     
     func rate(client_id: String, td_account: String, stars: String, comment: String, complete: @escaping rateHandler) {
-        guard let url = URL(string: "http://192.168.1.3:3000/review/") else {
+        guard let url = URL(string: "http://35.230.188.187/review/") else {
             complete(.Failure(error: HTTPError.invalidURL))
             return
         }

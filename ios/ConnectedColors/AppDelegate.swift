@@ -12,11 +12,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let colorService = ColorService()
     
+    var paymentLoad = false
+    
     weak var delegate: PeerGetMessageDelegate?
+    
+    var worker: UserWorker = UserWorker(http: HTTPService())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let id = "8653b028-8365-436c-938f-85c99ff31e6e_aa861e43-c2d6-453f-ab91-1cb82e9b0492"
+        UserDefaults.standard.set(id, forKey: "UserID")
         colorService.delegate = self
+        
+        self.worker.getUser(id: id, complete: { (result) in
+            switch result {
+            case .Success(let user):
+                if let dic = user.maskedRelatedBankAccounts, let accounts = dic["individual"] {
+                    let kUser = "BankAccounts"
+                    
+                    if let encoded = try? JSONEncoder().encode(accounts) {
+                        UserDefaults.standard.set(encoded, forKey: kUser)
+                    }
+                }
+            case .Failure(let error):
+                print("")
+            }
+        })
         return true
     }
 
@@ -48,15 +69,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate : ColorServiceDelegate {
     
     func connectedDevicesChanged(manager: ColorService, connectedDevices: [String]) {
+    }
+    
+    func colorChanged(manager: ColorService, colorString: String) {
         OperationQueue.main.addOperation {
             guard let accountsData = UserDefaults.standard.data(forKey: "Purchase"),
                 let rests = try? JSONDecoder().decode([Restaurant].self, from: accountsData), rests.count > 0 else {
-                return
+                    return
             }
-            if connectedDevices.count > 0 {
+            if colorString.count > 0 {
                 if let delegate = self.delegate {
                     if delegate.loaded {
-                        delegate.didGetUpdatePeer(connections: connectedDevices)
+                        delegate.didGetMessageFromPeer(message: colorString)
                         return
                     }
                     
@@ -64,21 +88,13 @@ extension AppDelegate : ColorServiceDelegate {
                     let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ColorSwitchViewController") as! ColorSwitchViewController
                     
-                    viewController.connections = connectedDevices
-                    
                     self.delegate = viewController
                     
                     self.window?.rootViewController?.present(viewController, animated: true, completion: {
-                        self.delegate?.didGetUpdatePeer(connections: connectedDevices)
+                        self.delegate?.didGetMessageFromPeer(message: colorString)
                     })
                 }
             }
-        }
-    }
-    
-    func colorChanged(manager: ColorService, colorString: String) {
-        OperationQueue.main.addOperation {
-            self.delegate?.didGetMessageFromPeer(message: colorString)
         }
     }
     

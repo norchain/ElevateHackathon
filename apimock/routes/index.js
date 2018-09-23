@@ -30,6 +30,14 @@ router.post('/*',function(req,res,next){
     next();
 });
 
+router.get('/video', function(req, res, next){
+    res.redirect("http://norchain.io")
+})
+
+router.get('/intro', function(req, res, next){
+    res.redirect("http://norchain.io")
+})
+
 router.get('/restaurants', function(req, res, next) {
     var db = mongoose.connection;
     restaurantModel.find({}, function(err, restaurants) {
