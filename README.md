@@ -2,17 +2,29 @@
 
 
 
-Fact: minority
+## 1. Brief
 
-Alice wants some authentic Maxican food, below is the recommendation from a popular recommendation app.
+
+
+## 2. The Challenge
+
+**Status**
+
+Alice wants some authentic Maxican food and gets below search result from a popular recommendation app.
 
 ![MaxicanFood](pics/MaxicanFood.jpg)
 
-Assume the result is simply based on the majority's gentrified favours, without any centralized controversial optimization algorithm, the question is:
+Assume the result is simply based on the majority's gentrified favours, without any centralized controversial optimization algorithm, the big Q is:
 
 ```
-In the data-driven era, how would local minority services, along with the cultures they persists, get survived without even being found by their lovers? 
+In the data-driven era, how would local minority services, businesses and culture better dis with their lovers?
 ```
 
 
+
+
+
+
+
+## 3. The Experiment
 
