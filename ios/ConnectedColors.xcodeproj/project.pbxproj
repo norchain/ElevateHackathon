@@ -296,7 +296,7 @@
 				TargetAttributes = {
 					BF6F13F31E4E58C90018D56E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = M4846KV222;
+						DevelopmentTeam = 8JLCNGAU2F;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
@@ -563,7 +563,7 @@
 			baseConfigurationReference = 7BE2B0B84566FCC62D34C652 /* Pods-ConnectedColors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M4846KV222;
+				DEVELOPMENT_TEAM = 8JLCNGAU2F;
 				INFOPLIST_FILE = ConnectedColors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.ConnectedColors;
@@ -577,7 +577,7 @@
 			baseConfigurationReference = C8A83FCCB71A6F47C719F1FC /* Pods-ConnectedColors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M4846KV222;
+				DEVELOPMENT_TEAM = 8JLCNGAU2F;
 				INFOPLIST_FILE = ConnectedColors/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenjiang.ConnectedColors;

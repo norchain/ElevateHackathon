@@ -35,6 +35,7 @@ class HistoryViewController: UIViewController {
             let rests = try? JSONDecoder().decode([Restaurant].self, from: accountsData) {
             purchases = rests
         }
+        tableview.reloadData()
     }
 
 }
