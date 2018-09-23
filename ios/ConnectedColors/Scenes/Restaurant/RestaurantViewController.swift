@@ -45,7 +45,10 @@ class RestaurantViewController: UIViewController {
                 }))
                 self.present(alert, animated: true)
             }
-            hud.dismiss()
+            DispatchQueue.main.async {
+                hud.dismiss()
+            }
+            
         }
     }
     
@@ -117,8 +120,7 @@ extension RestaurantViewController: UITableViewDataSource {
         if let cell = cell as? UserTableViewCell {
             cell.configure(with: restaurants[indexPath.row])
             if let strPath = restaurants[indexPath.row].TD_account {
-                cell.imageView?.image = UIImage(named:  "\(strPath).jpg")
-                cell.imageView?.contentMode = .scaleAspectFit
+                cell.customImageView.image = UIImage(named:  "\(strPath).jpg")
             }
         }
         

@@ -5,12 +5,15 @@ class ColorSwitchViewController: UIViewController {
 
     @IBOutlet weak var connectionsLabel: UILabel!
     
+    @IBOutlet weak var namelabel: UILabel!
     @IBOutlet weak var payButton: UIButton!
     var hasConnection = false {
         didSet {
             payButton.isEnabled = hasConnection
         }
     }
+    
+    var restuarant: Restaurant?
 
     @IBAction func triggerTouchID(_ sender: UIButton) {
         authenticateUserTouchID()
@@ -33,8 +36,10 @@ class ColorSwitchViewController: UIViewController {
     }
 
     func change(color : UIColor) {
-        UIView.animate(withDuration: 0.2) {
-            self.view.backgroundColor = color
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) {
+                self.view.backgroundColor = color
+            }
         }
     }
     
@@ -45,11 +50,19 @@ class ColorSwitchViewController: UIViewController {
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &authError) {
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: myLocalizedReasonString) { success, evaluateError in
                 if success {
-                    
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "showRating", sender: self)
+                    }
                 } else {
                     
                 }
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dvc = segue.destination as? RateViewController {
+            dvc.restaurant = restuarant
         }
     }
 }

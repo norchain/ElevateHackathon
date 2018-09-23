@@ -13,4 +13,5 @@ target 'ConnectedColors' do
   pod 'ViewAnimator'
   pod 'Eureka', '~> 4.2.0'
   pod 'RAMAnimatedTabBarController'
+  pod 'Cosmos', '~> 17.0'
 end

@@ -6,6 +6,7 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - Cosmos (17.0.0)
   - Eureka (4.2.0)
   - FBSDKCoreKit (4.36.0):
     - Bolts (~> 1.7)
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Cosmos (~> 17.0)
   - Eureka (~> 4.2.0)
   - ILLoginKit
   - JGProgressHUD
@@ -35,6 +37,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Bolts
+    - Cosmos
     - Eureka
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -49,6 +52,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Cosmos: 309e489f21ffc91a1eeecfebef7f817cd2fcfba6
   Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   FBSDKCoreKit: 3b8e6570eedb443f9fc4af196a7bf39f18e3a3d8
   FBSDKLoginKit: 95a252ddffd6919c0f132a02292f0824616d8709
@@ -60,6 +64,6 @@ SPEC CHECKSUMS:
   Validator: bf211c1d71b3f910d230c09c70e62429d0fef63a
   ViewAnimator: 20df9a24a076c6ee78b77a4dbf1943808c94954e
 
-PODFILE CHECKSUM: 5578276d96344f9aa6e686a498d41f3b99a794ea
+PODFILE CHECKSUM: 89e5cbfd0259b33906e1ca5d28adfb77b7f2197c
 
 COCOAPODS: 1.5.3
