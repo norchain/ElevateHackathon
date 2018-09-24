@@ -16,7 +16,7 @@ In the submission, we have:
 
 The powerpoint is [HERE](https://github.com/norchain/ElevateHackathon/blob/master/Elevate%20Hackathon.pptx).
 
-We also have an [Video](http://35.230.188.187/video) to demostrate the iOS app in bullet 2, along with the **Tap2Pay experience**.
+We also have an [Video](https://www.youtube.com/watch?v=coy9kttPirA) to demostrate the iOS app in bullet 2, along with the **Tap2Pay experience**.
 
 
 
